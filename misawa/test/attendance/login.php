@@ -1,11 +1,13 @@
 <?php
 session_start();
 
-if(empty($_POST['id'] || $_POST['pass'])){
-        header('Location: index.php');
-    }
+//ログアウト
+$_SESSION['userId'] = NULL;
+$_SESSION['userName'] = NULL;
+$_SESSION['userPass'] = NULL;
+$_SESSION['login'] = "ログインしていません．";
 
-if($_SESSION['login'] == "ログインしていません．"){
+
     $pdo = new PDO("mysql:dbname={$_SESSION['dbname']}", "{$_SESSION['dbusername']}", "{$_SESSION['dbpass']}");
     $st = $pdo->prepare("SELECT * FROM member WHERE id = ? AND pass = ?");//SQL文の発行
     $st->execute(array($_POST['id'], $_POST['pass']));
@@ -23,13 +25,11 @@ if($_SESSION['login'] == "ログインしていません．"){
         $_SESSION['login'] = "ログイン中！";
         header('Location: top.php');
     }
-    else
-        echo 'ログインに失敗しました．<br />IDとパスワードを確認して下さい．<br /><a href="index.php">戻る</a>';
+    else{
+        require "header.php";//ヘッダー読み込み
+        echo "<session id='passage'>";
+        echo '<p>ログインに失敗しました．<br />IDとパスワードを確認して下さい．<br /><a href="index.php">戻る</a></p>';
+        echo "<session>";
+        require "footer.php"; //フッター読み込み
+    }
     
-}
-else{
-    echo $name,'さんが<p>すでにログイン中です．<a href="logout.php">ログアウト</a></p>';
-    echo '<a href="top.php">進む</a>';
-}
-   
-?>

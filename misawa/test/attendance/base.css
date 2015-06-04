@@ -11,6 +11,104 @@ body{
 }
 
 /*==================================
+卒検ロゴ
+====================================*/
+#rogo {
+    z-index: 3;
+    position: absolute;
+    position: fixed;
+    top: -50px;
+    left: -50px;
+  
+    
+    
+}
+
+#rogo .sotukenrogo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  
+    
+    
+}
+
+#rogo #test01 {
+    background: none;
+        -webkit-animation: spin 20.5s linear infinite;
+        -moz-animation: spin 20.5s linear infinite;
+        -ms-animation: spin 20.5s linear infinite;
+        -o-animation: spin 20.5s linear infinite;
+        animation: spin 20.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+	0% {-moz-transform: rotate(0deg);}
+	100% {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes spin {
+	0% {-ms-transform: rotate(0deg);}
+	100% {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes spin {
+	0% {-o-transform: rotate(0deg);}
+	100% {-o-transform: rotate(360deg);}
+}
+@keyframes spin {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+
+#rogo #test02 {
+    background: none;
+        -webkit-animation: spin1 100.5s linear infinite;
+        -moz-animation: spin1 100.5s linear infinite;
+        -ms-animation: spin1 100.5s linear infinite;
+        -o-animation: spin1 100.5s linear infinite;
+        animation: spin1 100.5s linear infinite;
+}
+
+
+@-webkit-keyframes spin1 {
+	0% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin1 {
+	0% {-moz-transform: rotate(0deg);}
+	100% {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes spin1 {
+	0% {-ms-transform: rotate(0deg);}
+	100% {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes spin1 {
+	0% {-o-transform: rotate(0deg);}
+	100% {-o-transform: rotate(360deg);}
+}
+@keyframes spin1 {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
+    
+    
+
+
+
+
+/*==================================
+すべての表
+====================================*/
+table {
+    margin: 0 auto;
+    text-align:center;							/* テキストをセンター揃え */
+    
+}
+
+/*==================================
 main
 ====================================*/
 #main h2 {
@@ -18,10 +116,24 @@ main
     
 }
 #main section {
-    width: 49%;
+    
    margin: 5px; 
     
 }
+
+#main #right_contents {
+    float: right;
+    width: 50%;
+    
+}
+
+#main #left_contents {
+    float: left;
+    width: 50%
+    
+}
+
+
 
 
 /*==================================
@@ -45,7 +157,8 @@ header {
 header h1 {
 	font-size: 150%;							/* フォントのサイズ */
 	font-family: Arial, Helvetica, sans-serif;	/* フォントの種類 */
-    width: 80%;
+    width: 50%;
+    padding-left: 20%;
     float: left;
 	}
 header h1 a {
@@ -63,7 +176,7 @@ header h1 a {
 header h2 {
 	/*padding:0px 0px 0px 0px;					/* 見出しの位置調節 */
     margin: 35px 0px 0px 0px;                   /* 見出しの位置調節 */
-    float: left;
+    float: right;
 	font-size: 100%;							/* フォントのサイズ */
 	font-family: Arial, Helvetica, sans-serif;	/* フォントの種類 */
     width: 20%;
@@ -152,6 +265,22 @@ header h2 a {
  left: -60px;
 }
 
+/*----------自動ログインモード----------*/
+
+#autologin {
+    width: 100px;
+    height: 100px;
+    
+    
+    
+    
+    
+}
+
+
+
+
+
 #reload {//更新ボタン
     
 }
@@ -173,10 +302,32 @@ header h2 a {
 
 
 /*==================================
+google カレンダー
+====================================*/
+#calendar {
+    
+    
+    
+    
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+   
+    
+}
+
+
+
+
+
+
+/*==================================
 簡易掲示板
 ====================================*/
 #bbs {
-    float: right; 
+    
     
 }
 
@@ -199,8 +350,100 @@ header h2 a {
 
 
 textarea {/*bbs内容*/
-height: 3em;
+    width: 70%;
+    height: 3em;
 }
+
+/*==================================
+twitter
+====================================*/
+#twitter {
+    
+    
+}
+
+
+
+
+/*==================================
+個人予定
+====================================*/
+#personal_schedule {
+    
+    
+    
+    
+    
+}
+
+#personal_schedule li{
+    list-style-type: none;
+    
+    
+    
+    
+}
+
+.todaystasks {
+    margin-bottom: 5%;
+    font-weight: 700;
+    font-size: 170%;
+    color: crimson;
+    
+    
+    
+}
+
+.tommorowstasks {
+    margin-bottom: 3%;
+    font-weight: 600;
+    font-size: 130%;
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+/*==================================
+全体予定登録
+====================================*/
+#memtask {
+    
+    
+    
+}
+
+#memtask h2 {
+    color: red;
+    
+    
+}
+
+
+
+
+/*==================================
+個人予定登録
+====================================*/
+#pertask {
+    
+    
+}
+
+#pertask h2 {
+    color: blue;
+    
+}
+
+
 
 /*==================================
 登下校登録
@@ -274,6 +517,26 @@ height: 3em;
     
 }
 
+#joukyou select{
+    width: 110px;
+    font-size: 150%;
+    
+    
+}
+
+#joukyou input{
+    background-color: lime;
+    
+    
+}
+
+#joukyou input:hover{
+    background-color: greenyellow;
+    
+    
+}
+
+
 
 
 hr {
@@ -297,6 +560,52 @@ hr {
     background-color: indianred;
     
 }
+
+
+
+/*==================================
+
+
+
+個別ページ
+
+
+====================================*/
+
+/*==================================
+admin
+====================================*/
+#admin {
+    
+    
+    
+    
+    
+    
+    
+}
+
+#admin table{
+    width: 60%;
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

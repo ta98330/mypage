@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/*=================================
+全体的なスタイル
+==================================*/
+body {
+	background-color:#CCFFFF;					/* ページ全体の背景色 */
+	background-image:url("images/bg055_04.gif");	/* ウェブページ全体の背景画像 */
+	font-family: "MS ゴシック",sans-serif;			/* フォントの種類をゴシック系 */
+	color: #333333;								/* 文字色を変更　*/
+	}
+article {
+	width:800px; margin:0 auto;				/*内容全体をセンタリング*/
+    padding: 20px 50px;                              /*パディング */
+	background-color: #FFFFFF;					/*内容全体の背景色*/
+	background-image:url("images/bg056_04.gif");	/* ウェブページ全体の背景画像 */
+	}
+
+
+
+
+
+    
+    
+
+div.ex {
+    width: 520px;
+    border: 5px solid #CCCCCC;
+    margin: 0px 0px 0px 20px;                  /*左マージン */
+    
+    
+    
+    }
+
+div.sp{
+    width: 520px;
+    border: 5px solid #FF99FF;
+    margin: 0px 0px 0px 20px;                  /*左マージン */
+    
+    }
+
+
+
+hr {
+	clear: both;								/* フロート配置をクリア */
+	width: 900px;								/* 幅の指定 */
+	margin: 10px 0px;							/* マージン */
+	border: 1px dotted #CCCCCC;					/* 内容の区切りを点線に */
+	}
+
+
+
+/*==================================
+ヘッダ
+====================================*/
+header {
+	width: 800px; height: 60;					/* ヘッダ部分の幅と高さ */
+	margin: 0 auto;							/* 上下マージン0px、左右マージン20px */
+	/*background-color:#808080;					/* 背景色 */
+	}
+header h1 {
+	padding:10px 5px 0px 10px;					/* 見出しの位置調節(上右下左) */
+	font-size: 35px;							/* フォントのサイズ */
+	font-family: Arial, Helvetica, sans-serif;	/* フォントの種類 */
+	}
+
+
+
+
+/*==================================
+フッタ
+====================================*/
+footer {
+	height:40px;								/* 高さ指定 */
+	padding:10px 0px 0px 0px;					/* パディング */
+	font-size:x-small;							/* フォントサイズを小さく */
+	text-align:center;							/* テキストをセンター揃え */
+	}
+
+
+
+
+
+
+
+

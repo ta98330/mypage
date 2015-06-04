@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="jstestbase.css">
+<title>javascript練習</title>
+
+<!--SyntaxHighlighter-->
+<script type="text/javascript" src="scripts/shCore.js"></script><!-- コアスクリプト(必須) -->
+<script type="text/javascript" src="scripts/shBrushXml.js"></script><!-- HTML,XMLを使う -->
+<script type="text/javascript" src="scripts/shBrushJScript.js"></script><!-- JavaScriptを使う -->
+<script type="text/javascript" src="scripts/shBrushCss.js"></script><!-- cssを使う -->
+<link type="text/css" rel="stylesheet" href="styles/shThemeDefault.css"><!-- デザインテーマ -->
+<script type="text/javascript">SyntaxHighlighter.all();</script><!-- スクリプトの開始(必須) -->    
+    
+    
+</head>
+<body>
+
+<!-- ヘッダ　-->
+	<header>
+	<h1>javascript練習ページ</h1>
+    </header>
+
+    <article>
+        <section id="introduce">
+            <h2>はじめに</h2>
+                <script>document.write("ご使用のブラウザのJavaScriptブラウザの設定はONです！<br>");//JavaScriptのON/OFF</script>
+                <noscript>JavaScriptはOFFです．ブラウザの設定を確認して下さい</noscript>
+                <p>参考書籍を元にスライドショーのプログラムでjavascriptを学んでいきます．</p>
+            
+                <h3>環境構築</h3>
+                    <p>javascriptはブラウザとテキストエディタさえあればプログラムを書き始められます．<br />
+                        好きなブラウザ・エディタでかまいません．今回使用するソフトは例として開発環境に載せています．</p>
+            
+                <h3>開発環境</h3>
+                    <h4>ブラウザ</h4>
+                        <a href="https://www.google.co.jp/chrome/browser/desktop/index.html" target="_blank"><img src="images/rogo/chrome.jpg" alt="No image"><br />Google Chrome</a><p>ブラウザ自体に開発ツールGoogle Developer Toolsが付属</p>
+                    <h4>コードエディター</h4>
+                        <a href="http://brackets.io/" target="_blank"><img src="images/rogo/brackets.jpg" alt="No image"><br />Brackets</a><p>オープンソースながら柔軟な拡張性・コードヒント・コード補完機能などが搭載　日本語対応</p>
+                
+                <h3>javascriptの記述場所</h3>
+                    <p>javascriptはHTMLのscript要素にプログラムを記述することで実行されます．<br />
+                        要素内に直接書く方法とsrc属性にjavascriptが書かれたファイルのパスを指定し<br />
+                        外部ファイルを読み込んで実行する2つの方法があります．実行結果に違いはありません．</p>
+                    <p>外部ファイル化しておくと，複数のページから同じプログラムを読み込むことができたり，<br />
+                        一度読み込んだファイルをブラウザがキャッシュしてくれるなどの利点があるため外部化することが多いです．</p>
+                    
+
+
+        </section>
+        <hr />
+        <section id="main">
+            <h2>学習</h2>
+                <p>本ページでは次の90行程度のサンプルプログラムでJavascriptを学習していきます．</p>
+                <a href="jsrepo/slideshow01/index.html" target="_blank">サンプル：スライドショーのプログラム</a>
+                <a href="jsrepo/slideshow01/htmlcode.html" target="_blank">コード</a>
+                <a href="pdf/slideshow/html.pdf" target="_blank">HTML.pdf</a>
+                <a href="pdf/slideshow/javascript.pdf" target="_blank">javascript.pdf</a>
+            
+                <h3>プログラムの動作</h3>
+                <ul>
+                    <li>初期表示は1番目の画像を表示</li>
+                    <li>nextボタンを押すと，次の画像と，画像の番号・タイトルを表示</li>
+                    <li>最後の画像の次は，1番目の画像に戻る（ループさせる）</li>
+                    <li>切り替え時にフェードなどのアニメーションは無し</li>        
+                </ul>
+            
+                <h3>javascriptの文法</h3>
+                    <p>知識を深めることが目的なので大学でのC言語プログラミング実習を受けたことを前提に，非常に基本的なところは省略します．</p>
+                    <h4>基本的な文法</h4>
+                        <p><strong>変数</strong>-データを記録する<br />変数はデータを保管しておく箱です．</p>
+                        <h5>変数の定義</h5>
+                            <p>箱を作るには次のように書きます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var 箱の名前;
+                            </pre></div>
+                            <p>varはvariavle(変数)という英単語の略で，変数を作るための決まった書き方です．<br />
+                                箱の中に何か入れるには次のように書きます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            箱の名前 = 入れるもの;
+                            </pre></div>
+                            <p><a href="http://ja.wikibooks.org/wiki/JavaScript/var#.E5.A4.89.E6.95.B0.E3.81.AE.E8.AD.98.E5.88.A5.E5.AD.90" target="_blank">参考：変数の識別子</a></p>
+                            <p>カンマ(,)で区切ることで複数の変数をまとめて定義できます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var 箱の名前 = 入れるもの１, 入れるもの２;
+                            </pre></div>
+                            <p>=が箱のなかに入れるための記号です．（<strong>代入</strong>もしくは<strong>変数にデータを保存する</strong>といいます．）<br />また，箱を作るのと同時に中身を入れることもできます．次の2つは同じ意味になります．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            //箱を作ってから何か入れる
+                            箱の名前 = 入れるもの;
+                            //箱を作ると同時に何か入れる
+                            var 箱の名前 = 入れるもの;
+                            </pre></div>
+                            <p>2つ目の文法に沿って，nameという変数に三澤拓弥という値を入れてみます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var name = '三澤拓弥';
+                            console.log(name); //=> 三澤拓弥
+                            </pre></div>
+                            <p>これを日本語に訳すと「nameという名前の箱を作ってその箱に，'三澤拓弥'という文字列を入れる」という意味になります．（文字列については後述）</p>
+                            <p>javascriptで扱うことのできるデータには文字列の他にも様々ありますが，変数にはどんなデータでも入れることができます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var str = 'string';     //文字列
+                            var num = 100;          //数値
+                            var arr = ['a', 'b'];   //配列
+                            var obj = { a: 'b' };   //オブジェクト
+                            var fun = function () {};//関数
+                            </pre></div>
+        
+                        <h5>値の更新</h5>
+                            <p>変数に値を代入後，違うデータを代入することで値の上書きができます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var name = '三澤拓弥';
+                            name = '仁里友哉';
+                            console.log(name); //=>仁里友哉
+                            </pre></div>
+            
+                    <h4>ここまでで理解できるサンプルプログラムを見直す</h4> 
+                        <div class="sp"><pre class="brush: javascript;">
+                            var photoList = [
+                                    { src: 'img/spring.jpg', title: '春の桜' },
+                                    { src: 'img/summer.jpg', title: '夏のひまわり' },
+                                    { src: 'img/autumn.jpg', title: '秋の紅葉' },
+                                    { src: 'img/winter.jpg', title: '冬の山' }
+                            ];
+                        </pre></div>
+                        <p>var photolist = という記述が変数の定義と代入を行っていることがわかります．<br />
+                            <a href="jsrepo/slideshow01/htmlcode.html" target="_blank">サンプルコード</a>全体を見返してみると他にも変数の定義や代入している箇所がわかるようになりました．</p>
+            
+                    <h4>文字列と数値</h4>
+                        <p>データにはいくつか種類があり，このデータの種類のことを型といいます．<br />
+                            型によってはプログラム内での扱いが違うため，違いを意識するのは重要です</p>
+                        <h5>文字列の定義</h5>
+                            <p>その名のとおり文字が並んでいるデータのことで，シングルクオート（’）かダブルクオート（”）で囲まれた部分になります．</p>
+                        <h5>文字列の連結</h5>
+                            <p>複数の文字列をつなぎ合わせることを文字列の連結といいます．＋記号を使います．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var name = '三澤' + '拓弥';
+                            console.log(name); //=>三澤拓弥
+                            </pre></div>
+                            <p>文字列を保存した変数も中身が文字列なので+によって連結できます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var firstName = '三澤';
+                            var lastName = '拓弥';
+                            var fullName = firstName + lastName;
+                            console.log(name); //=>三澤拓弥
+                            </pre></div>
+                            <p>また連結するときに自分自身を使うこともできます．<br />
+                                nameをname+'拓弥'で上書きしています．もとのnameが三澤なので，三澤拓弥になります．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var name = '三澤';
+                            name = name + '拓弥';
+                            console.log(name); //=>三澤拓弥
+                            </pre></div>
+                        <h5>文字列の定義</h5>
+                            <p>数値型はクオートを使わずに定義します．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            console.log(10); //=> 10
+                            console.log(10.5); //=> 10.5
+                            </pre></div>
+                            <p>代入はもちろん，基本的な四則演算はCと同じようにできるので説明は省きます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var x = 10;
+                            var y = 4;
+                            var result;
+
+                            // 足し算
+                            result = x + y;
+                            console.log(result); //=> 14
+
+                            // 引き算
+                            result = x - y;
+                            console.log(result); //=> 6
+
+                            // 掛け算
+                            result = x * y;
+                            console.log(result); //=> 40
+
+                            // 割り算（商）
+                            result = x / y;
+                            console.log(result); //=> 2.5
+
+                            // 割り算（あまり）
+                            result = x % y;
+                            console.log(result); //=> 2
+                            </pre></div>
+                        <h5>数値と文字列の違い</h5>
+                            <p>ここで注意することとして文字列と数値がぜんぜん違うということです．上が数値の場合，下が文字列の場合です．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var x = 10;
+                            var y = 20;
+                            var result = x + y;
+                            console.log(result); //=> 30
+                            </pre></div>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var x = '10';
+                            var y = '20';
+                            var result = x + y;
+                            console.log(result); //=> 1020
+                            </pre></div>
+                            <p>同じ演算でも変数の型によって結果が変わることを意識しなければなりません．</p>
+            
+                    <h4>ここまでで理解できるサンプルプログラムを見直す</h4> 
+                        <a href="jsrepo/slideshow01/htmlcode.html" target="_blank">サンプルコード</a>
+                        <div class="sp"><pre class="brush: javascript;">
+                            var photoList = [
+                                    { src: 'img/spring.jpg', title: '春の桜' },
+                                    { src: 'img/summer.jpg', title: '夏のひまわり' },
+                                    { src: 'img/autumn.jpg', title: '秋の紅葉' },
+                                    { src: 'img/winter.jpg', title: '冬の山' }
+                            ];
+                        </pre></div>
+                        <p>シングルクオートで囲まれた（字が青い）部分が文字列であることがわかります．<br /></p>
+                        <p>また，サンプルコードの47行目は文字列の連結が行われているのがわかります．</p>
+                        <div class="sp"><pre class="brush: javascript;">
+                            title.innerHTML = '[' + viewNumber + '] ' + targetPhoto.title;
+                        </pre></div>
+                        <p>viewNumberには1番目なら1，2番めなら2と画像の番号が入っていて，targetPhoto.titleには画像のタイトルが代入されています．<br />これらを連結して1番目の画像のときは，[1] 春の桜 となります．</p>
+                            <p><a href="jsrepo/slideshow01/htmlcode.html" target="_blank">サンプルコード</a>全体を見返してみると他にも文字列の連結や，数値の足し算，インクリメント処理などの箇所がわかるようになりました．</p>
+                    <h4>配列とオブジェクト</h4>
+                        <p>複数のデータをまとめたデータである配列，オブジェクトについてどういう利点があるのか見ていきます．</p>
+                        <h5>配列とは何か</h5>
+                            <p>配列は複数の同じ型のデータをひとまとめにして扱うのが得意なデータ型です．<br />
+                                別のデータ型も入れることができますが，あまり使いません．定義，要素の値の取得についてはC言語と変わらないので省略します．</p>
+                        <h5>配列の操作</h5>
+                            <p>要素の値の更新は次のように行うことができます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var fruit = ['みかん', 'りんご', 'ぶどう'];
+                            fruit[1] = 'いちご';
+                            console.log(fruit); //=> ['みかん', 'いちご', 'ぶどう']
+                            </pre></div>
+                            <p>配列の要素数は.lengthで取得できます．要素数を取得できると便利なことがたくさんあります．スライドショーのプログラムでもこれを使った処理を書いていることで将来的に何枚でも画像を増やすことができるようになります．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var fruit = ['みかん', 'りんご', 'ぶどう'];
+                            console.log(fruit.length); //=> 3
+                            </pre></div>
+                            <p>要素数を取得できると便利なことがたくさんあります．</p>
+                        <h5>オブジェクトとは何か</h5>
+                            <h4>異なる種類のデータをまとめて扱うのが得意なデータ型です．</h4>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var person = {
+                                name: '鈴木一郎',
+                                age: 20,
+                                gender: 'male'
+                            };
+                            </pre></div>
+                            <p>このように配列と違ってまとめられたそれぞれのデータに名前が付けられ，<br />どの値が何を指すのかがわかりやすくまとめることができます．</p>
+                        <h5>オブジェクトの定義</h5>
+                            <p>名前と値のペアを<strong>プロパティ</strong>，値につける名前のことを<strong>プロパティ名</strong>と言います．<br />オブジェクトは{}で括って定義し，プロパティ名と値をコロン(:)で区切り，それぞれのペアをカンマ(,)で区切ります．<br />たとえば次のように書くと，key1がプロパティ名，val1が値となります．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var obj = { key1: 'val1', key2: 'val2', key3: 'val3' };
+                            </pre></div>
+                            <p>次のように，値には文字列，配列，オブジェクト，関数など，どんなデータも指定できます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var obj = {
+                                key1: 'string',     // 文字列
+                                key2: 100,          // 数値
+                                key3: ['a', 'b'],   // 配列
+                                key4: { a: 'b' },   // オブジェクト
+                                key5: function() {} // 関数
+                            };
+                            </pre></div>
+                        <h5>オブジェクトの操作</h5>
+                            <p>プロパティの値を取得するには，ピリオド(.)を使ってプロパティ名を指定します．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var person = {
+                                name: '鈴木一郎',
+                                age: 20,
+                                gender: 'male'
+                            };
+                            var name = person.name;
+                            console.log(name); //=> 鈴木一郎
+                            </pre></div>
+                            <p>オブジェクトは入れ子にもできるので，入れ子になっている場合は次のようにピリオドを複数つなげます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var person = {
+                                name: '鈴木一郎',
+                                age: 20,
+                                gender: 'male',
+                                address: {
+                                    postcode: '100-0001',
+                                    pref: '東京都',
+                                    city: '千代田区'
+                                }
+                            };
+                            var postcode = person.address.postcode;
+                            console.log(postcode); //=> 100-0001
+                            </pre></div>
+                            <p>オブジェクトの値を取得するには，このようにピリオド(.)を使うのが一般的ですが，<br />次のように変数を使って値を取得するには[]を使う必要があります．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var person = {
+                                name: '鈴木一郎',
+                                age: 20,
+                                gender: 'male'
+                            };
+                            var key = 'name';
+                            var name = person[key];
+                            console.log(name); //=> 鈴木一郎
+                            </pre></div>
+                            <p>person[key]でプロパティの値を取得できていることがわかります．</p>
+                            <p>オブジェクトも配列と同じようにプロパティ名を指定して値を代入することができます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var person = {
+                                name: '鈴木一郎',
+                                age: 20,
+                                gender: 'male'
+                            };
+                            person.age = 21;
+                            console.log(person.age); //=> 21
+                            </pre></div>
+                            <p>存在しないプロパティ名に値を代入すると，新しくプロパティを作ることができます．</p>
+                            <div class="ex"><pre class="brush: javascript;">
+                            var person = {
+                                name: '鈴木一郎',
+                                age: 20,
+                                gender: 'male'
+                            };
+                            person.kana = 'すずきいちろう';
+                            console.log(person.kana); //=> すずきいちろう
+                            </pre></div>
+            
+                    <h4>ここまでで理解できるサンプルプログラムを見直す</h4> 
+                        <a href="jsrepo/slideshow01/htmlcode.html" target="_blank">サンプルコード</a>
+                        <div class="sp"><pre class="brush: javascript;">
+                        var photoList = [
+                                { src: 'img/spring.jpg', title: '春の桜' },
+                                { src: 'img/summer.jpg', title: '夏のひまわり' },
+                                { src: 'img/autumn.jpg', title: '秋の紅葉' },
+                                { src: 'img/winter.jpg', title: '冬の山' }
+                            ];
+                        </pre></div>
+                        <p>photolistに何が代入されているかがわかるようになりました．<br />
+                            photolistは[]で定義されているので<strong>配列</strong>です．<br />
+                            配列の要素一つ一つは{}で囲まれており<strong>プロパティ:値</strong>という記述になっているので，<strong>オブジェクト</strong>ということがわかります．<br />
+                            オブジェクトの中身にはsrcとtitleというプロパティ名が設定されていて，その値に画像のパスとタイトルが文字列で指定されています．<br />
+                            つまりphotolistは，画像1つの要素とする配列だということがわかります．</p>
+                        <p>次に変数の要素数の取得についてです．サンプルコードの21行目</p>
+                        <div class="sp"><pre class="brush: javascript;">
+                        var photoLength = photoList.length;
+                        </pre></div>
+                        <p>photoListの要素数を取得しています．今回のサンプルでは要素数は4なので，photolengthには4が代入されます．</p>
+                        <p>次にサンプルコードの35～51行目</p>
+                        <div class="sp"><pre class="brush: javascript;">
+                        // 指定の画像に表示を切り替える関数
+                        function showPhoto(index) {
+                            // すべての画像を非表示
+                             for (var i = 0; i < photoLength; i++) {
+                                photoList[i].elem.style.display = 'none';
+                             }
+
+                            // 表示する対象の要素を取得
+                            var targetPhoto = photoList[index];
+
+                            // タイトルの表示
+                            var viewNumber = index + 1;
+                            title.innerHTML = '[' + viewNumber + '] ' + targetPhoto.title;
+
+                            // 画像の表示
+                            targetPhoto.elem.style.display = 'inline';
+                            }
+                        </pre></div>
+                        <p>上の処理で9行目のphotoList[index]はphotoList（配列）の要素を取得していることがわかります．<br />indexは表示したい画像のインデックスになっています．インデックスというのは配列の要素番号のことでしたので，<br />photoListのindex番目の要素を取得するという意味です．したがって，targetPhotoには表示したい画像の要素（オブジェクト）<br />が代入されることになります．</p>
+                        <p>次にサンプルコードの78～90行目</p>
+                        <div class="sp"><pre class="brush: javascript;">
+                            // img要素の作成
+                                img = document.createElement('img');
+
+                                // 作成したimg要素に属性を設定
+                                img.src = item.src;
+                                img.alt = item.title;
+
+                                // 作成したimg要素をHTMLに追加
+                                photo.appendChild(img);
+
+                                // 作成したimg要素を保存
+                                item.elem = img;
+                            }
+                        </pre></div>
+                        <p>for文については後述します．ここではphotoList（配列）のすべての要素に対して，HTMLのimg要素を作り，<br />
+                            HTMLに追加するという処理を行っています．<br />
+                            img変数についても後述しますが，img.srcやimg.altはピリオドでつながっているのでオブジェクトです．<br />
+                            img変数（オブジェクト）のsrcというプロパティにitem.srcを代入しているということになります．</p>
+                        <p>また，item.elem = imgは，作ったimg要素をphotoListの要素のelemプロパティに追加しています．<br />
+                            つまりこの処理の後，photoListは，プログラムの途中で既存のオブジェクトに新しいプロパティが追加され，次のようなデータになります．</p>
+                        <div class="sp"><pre class="brush: javascript;">
+                            var photoList = [
+                                { src: 'img/spring.jpg', title: '春の桜', elem: 作成したimg要素 },
+                                { src: 'img/summer.jpg', title: '夏のひまわり', elem: 作成したimg要素 },
+                                { src: 'img/autumn.jpg', title: '秋の紅葉', elem: 作成したimg要素 },
+                                { src: 'img/winter.jpg', title: '冬の山', elem: 作成したimg要素 }
+                            ];
+                        </pre></div> 
+                        <p><a href="jsrepo/slideshow01/htmlcode.html" target="_blank">サンプルコード</a>全体を見返してみると配列とオブジェクトになっている部分が理解できるようになりました．</p>    
+                         
+                        <h4>条件判定のための型と演算子</h4>
+                            <p>条件判定に使うのはif分やwhile文などです．基本的にC言語と違いは感じなかったので改めて説明する必要がない部分は省きます．</p>
+                            <h5>比較演算子</h5>
+                                <p>＞や＜，＞＝や＜＝，！や＆＆や｜｜などは同じなので省きます．ここでは＝＝と＝＝＝の違いについて説明します．<br />
+                                javascriptでは＝＝ではなく，＝＝＝で厳密な比較を行うことができます．たとえばこのような違いがあります．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                console.log('10' == 10); //=> true
+                                console.log('10' === 10); //=> false
+                                </pre></div>
+                                <p>＝＝は，片方が文字列で片方が数値でも，同じ数字であればtureだと判断します．一方＝＝＝はfalseだと判断します．文字列と数値ではプログラムでは別物なので＝＝＝のほうが厳密な比較と言えます．思わぬバグの発生を防ぐため，特別な理由がない場合は＝＝＝を使うことをお勧めします．</p>
+                            
+                        <h4>ここまでで理解できるサンプルプログラムを見直す</h4> 
+                            <p>省略した繰り返し処理などを踏まえてサンプルプログラムを見なおしていきます．</p>
+                            <a href="jsrepo/slideshow01/htmlcode.html" target="_blank">サンプルコード</a>
+                            <p>繰り返し処理処理を使っているサンプルコード37～40行目，73～90行目</p>
+                            <div class="sp"><pre class="brush: javascript;">
+                                 // すべての画像を非表示
+                                for (var i = 0; i < photoLength; i++) {
+                                    photoList[i].elem.style.display = 'none';
+                                }
+                                
+                                （略）
+                                
+                                // img要素をHTMLに追加
+                                var item, img;
+                                for (var i = 0; i < photoLength; i++) {
+                                    item = photoList[i];
+
+                                    // img要素の作成
+                                    img = document.createElement('img');
+
+                                    // 作成したimg要素に属性を設定
+                                    img.src = item.src;
+                                    img.alt = item.title;
+
+                                    // 作成したimg要素をHTMLに追加
+                                    photo.appendChild(img);
+
+                                    // 作成したimg要素を保存
+                                    item.elem = img;
+                                }
+                                
+                            </pre></div>
+                            <p>photoListのすべての要素に対して何か処理をするという用途でfor文を使っています．</p>
+                            <p>photoListは画像データの配列で，photolengthにはphotoListの要素数が代入されています．<br />for文の条件式にphotoLengthを利用することで，配列の要素数が変わっても（画像の枚数が増えても）<br />
+                                for文のコードを変更しないでいいようになっています．</p>
+                            
+                        <h4>関数</h4>
+                            <p>関数とは一連の処理をまとめたものです．何回も使う処理をまとめておくことができます．</p>
+                            <h5>関数の定義と読み出し</h5>
+                                <div class="ex"><pre class="brush: javascript;">
+                                function 関数名(引数, 引数, ...){
+                                    文;
+                                    文;
+                                    文；
+                                }
+                                </pre></div>
+                                <p>関数はこのように定義します．文は{}内に複数記述できます．関数に渡す引数というデータも，カンマ区切りで複数指定できます．<br />引数については後述します．最後の}の後にセミコロンは不要です．if文やfor文と違って{と}で囲まれた部分はブロックではないので，<br />文が1つの場合も省略できません．</p>
+                                <p>関数の中に定義した文を実行するためには，関数を呼び出す必要があります．呼び出すには次のように記述します．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                関数名(引数, 引数, ...);
+                                </pre></div>
+                                <p>次の例を見てください．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                // 関数の定義
+                                function add() {
+                                    var a = 10;
+                                    var b = 20;
+                                    var result = a + b;
+                                    console.log(result);
+                                }
+
+                                // 関数の呼び出し
+                                add(); //=> 30
+                                </pre></div>
+                                <p>function add() {（略）}でaddという名前の関数を定義しています．add関数は2つの値を足し算して出力するだけのものです．<br />このadd関数を最後の行のadd()という記述で呼び出していることがわかります．これまで何度も出てきた()という表記はすべて関数を呼び出しています．console.logも，consoleオブジェクトのlogという関数を呼び出しているのです．</p>
+                                <p>また，<strong>var 変数名 =  function 関数名(引数, 引数, ...){</strong>のように関数は変数に代入することで定義することもできます．次の例は関数の定義部分以外は前の例と同じです．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                // 関数の定義
+                                var add = function() {
+                                    var a = 10;
+                                    var b = 20;
+                                    var result = a + b;
+                                    console.log(result);
+                                }
+
+                                // 関数の呼び出し
+                                add(); //=> 30
+                                </pre></div>
+                                <p>よく使う方法として，オブジェクトのプロパティの値として関数を定義する方法があります．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                var person = {
+                                    name: '鈴木一郎',
+                                    age: 20,
+                                    say: function() {
+                                        console.log('こんにちは！');
+                                    }
+                                };
+
+                                person.say(); //=> こんにちは ！
+                                </pre></div>
+                                <p>personオブジェクトのsayプロパティの値に「こんにちは！」と出力する関数を指定しています．</p>
+                            
+                            <h4>引数</h4>
+                                <p>引数は，関数に渡すことができるデータです．次の例を見てください．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                // 関数の定義
+                                function add(a, b) {
+                                var result = a + b;
+                                    console.log(result);
+                                }
+
+                                // 関数の呼び出し
+                                add(1, 1); //=> 2
+                                add(10, 20); //=> 30
+                                </pre></div>
+                                <p>add(a, b)のaとbが引数です．このように関数を定義しておくと，呼び出すときに毎回このaとbの値を指定できます．<br />これで今までのように固定の値のため何度呼び出しても同じ結果になるのではなく，どのような数値の足し算でも行うことができる関数になりました．</p>
+                                <p>重要なのは，関数を呼び出すときにその関数が<strong>どのような引数をいくつ受け取るかを知っておく</strong>ことです．</p>
+                                <p>引数の数を間違えた場合は文法的にはエラーではありません．例えば関数が想定している数より少ない引数を指定した場合は，undefined（定義されていない値）が入ります．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                function func(a) {
+                                    console.log(a);
+                                }
+
+                                func(); //=> undefined
+                                </pre></div>
+                                <h5>戻り値</h5>
+                                    <p>関数には戻り値というものがあり，戻り値を使うと関数を実行した結果を返すことができます．<br />
+                                        値を返すにはreturnを使います．次の例を見てください．</p>
+                                    <div class="ex"><pre class="brush: javascript;">
+                                    function add(a, b) {
+                                        var result = a + b;
+                                        return result;
+                                    }
+
+                                    var result1 = add(1, 1);
+                                    console.log(result1); //=> 2
+
+                                    var result2 = add(10, 20);
+                                    console.log(result2); //=> 30
+
+                                    var result3 = add(result1, result2);
+                                    console.log(result3); //=> 32
+                                    </pre></div>
+                                    <p>前の例と違うのはadd関数の中でconsole.logで出力されるのではなく，add関数で計算された結果が返されて，それをresult1やresult2に代入しているところです．この戻り値を使うことでadd関数は引数に指定した数値を足し算して返すという関数になりました．これにより返ってきた結果を自由に使うことができるようになり，より汎用的な関数になりました．</p>
+                                    <p>戻り値も引数と同じようにあらかじめ<strong>どのような戻り値があるのか，もしくは無いのか</strong>を知っておく必要があります．</p>
+                            <h4>ここまでで理解できるサンプルプログラムを見直す</h4> 
+                                <a href="jsrepo/slideshow01/htmlcode.html" target="_blank">サンプルコード</a>
+                                <p>関数を定義している部分はサンプルコード36行目</p>
+                                <div class="sp"><pre class="brush: javascript;">
+                                    // 指定の画像に表示を切り替える関数
+                                    function showPhoto(index) {
+                                        // すべての画像を非表示
+                                        for (var i = 0; i < photoLength; i++) {
+                                            photoList[i].elem.style.display = 'none';
+                                        }
+
+                                        // 表示する対象の要素を取得
+                                        var targetPhoto = photoList[index];
+
+                                        // タイトルの表示
+                                        var viewNumber = index + 1;
+                                        title.innerHTML = '[' + viewNumber + '] ' + targetPhoto.title;
+
+                                        // 画像の表示
+                                        targetPhoto.elem.style.display = 'inline';
+                                    }
+
+                                </pre></div>
+                                <p>上のサンプルコード2行目のshowPhoto関数は，indexという引数を受け取って値は返していません．受け取ったindexの番号の画像を表示するだけなので，戻り値はありません．呼び出し側は次のようになっています．（サンプルコード66行目）</p>
+                                <div class="sp"><pre class="brush: javascript;">
+                                    showPhoto(currentIndex);
+                                </pre></div>
+                                <p>戻り値は無いので，呼び出し側にもvar result1 = add(1, 1);のように戻り値を変数で受け取る記述がありません．</p>
+                                <p>次に下のサンプルコード23～26行目の部分を見てください</p>
+                                <div class="sp"><pre class="brush: javascript;">
+                                    // 要素の取得
+                                    var photo = document.getElementById('photo');
+                                    var nextBtn = document.getElementById('nextBtn');
+                                    var title = document.getElementById('title');
+                                </pre></div>
+                                <p>ここでは要素を取得するために<strong>document.getElementById</strong>という関数を実行しています．詳しくは後述しますが，これはあらかじめjavascriptが用意している関数です．このようなあらかじめ用意されている関数は自分では定義していないので，内部でどのような処理が行われているかはわかりませんが，引数と戻り値，呼び出した時の挙動さえわかれば使うことができます．<strong>document.getElementById</strong>は<strong>引数にHTMLのid名を文字列で渡すと，該当のHTMLの要素を戻り値として返す関数</strong>です．このことを知っておけば使うことができます</p>
+                                <p>次のサンプルコード8行目～の部分を見てください．</p>
+                                <div class="sp"><pre class="brush: javascript;">
+                                    window.onload = function() {
+                                        （略）
+                                        
+                                        // nextボタンを押したときの処理
+                                        nextBtn.onclick = function() {
+                                            （略）
+                                        };
+                                        
+                                        （略）
+                                    };
+                                </pre></div>
+                                <p>window.onloadとnextBtn.onclickはオブジェクトのプロパティに関数を代入して定義しています．これは後述するイベントと呼ばれるもので，HTMLの読み込みが終わった後や，ボタンをクリックしたときに設定した関数を実行します．</p>
+                                <p><a href="jsrepo/slideshow01/htmlcode.html" target="_blank">サンプルコード</a>全体を見返してみると関数を定義している部分，関数を呼び出している部分が理解できるようになりました．</p> 
+                            
+                        <h3>javascriptでHTMLやCSSを操作する</h3>
+                            <p>windowオブジェクトというjavascriptで一番重要なオブジェクト，DOM，イベントが行われた時の処理を予約する仕組みについて解説します．</p>
+                        <h4>windowオブジェクト</h4>                    
+                            <p>普通のオブジェクトとは異なるいくつかの特徴について解説します．</p>
+                            <h5>windowオブジェクトとは何か</h5>
+                                <p>windowオブジェクトは<strong>ブラウザのウィンドウのことを指す</strong>と考えてください．windowオブジェクトはjavascriptに」あらかじめ用意されているオブジェクトで，何もjavascriptを書いていない状態でも使えます．例えば次の例を見てください．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                    window.alert('hello, world');
+                                </pre></div>
+                                <p>これは今開いているブラウザのウィンドウに対して，<strong>「hello,world」というアラートダイアログを表示する</strong>という意味です．</p>
+                                <p>javascriptであらかじめ用意されている関数やオブジェクトは，すべてwindowオブジェクトのプロパティになります．</p>
+                                <p>javascriptはwindowオブジェクトに対して何かアクションを起こすことで，表示を切り替えたりページ繊維をコントロールします．ですのでwindowオブジェクトはとても重要なオブジェクトなのです．</p>
+                            <h5>windowオブジェクトの省略</h5>
+                                <p>windowオブジェクトはjavascriptでは特殊な扱いで，windowオブジェクトのプロパティにアクセスするときwindowを省略できます．つまりwindow.aleatは，単にalertと書くことができます．</p>
+                            <h5>windowオブジェクトの主なプロパティ</h5>       
+                                <p>windowオブジェクトのプロパティにはalertなどの関数や，ウィンドウの幅のピクセル数が数値で格納されているinnerWidthなどの他に値がオブジェクトになっているものが多くあります．それらのオブジェクトはさらにプロパティにオブジェクトを持っていることもああり，windowオブジェクトを頂点とした階層構造になっています．<a href="http://javascript.pc-users.net/browser/window/" target="_blank">参考（JavaScript入門講座）</a></p>
+                                    
+                        <h4>DOM</h4>        
+                            <h5>DOMとは何か</h5>
+                                <p>DOMはDocument Object Modelの略で，JavascriptからHTMLやCSSのデータを取得，操作するための仕組みです．次の例を見てください．上がHTML,下がJavascriptです．</p>
+                                <div class="ex"><pre class="brush: html;">   
+                                    <div id="box">This is box</div>
+                                </pre></div>
+                                <div class="ex"><pre class="brush: javascript;">
+                                    window.onload = function() {
+                                        // id名が'box'の要素を取得する
+                                        var box = document.getElementById('box');
+
+                                        // 取得した要素の背景色を赤にする
+                                        box.style.backgroundColor = 'red';
+                                    };
+                                </pre></div>   
+                                <p>これはid名がboxであるHTMLの要素の背景色を赤くするというとても単純なJavascriptのプログラムです．このプログラムについて説明していきます．DOMにはとても多くの機能があるため主要な機能の紹介にとどめます．</p>    
+                            <h5>要素の取得</h5>
+                                <p>DOMを用いたプログラムの流れは「要素を取得する」⇒「取得した要素を操作する」となる場合がほとんどです．まずはHTMLの要素を取得する方法について解説します．</p>
+                                <p><strong>document.getElementById</strong>は，<strong>指定したid名の要素を取得する</strong>関数です．<strong>document.getElementById(id名)</strong>のように記述します．<br /><strong>documentはHTML文書を指している</strong>ので，document.getElementById(id名)は「HTML文書の中から指定したid名の要素を取得してください」という命令になります．<strong>id名は文字列で指定する必要</strong>があります．<br />また，ここで取得したboxは<strong>オブジェクト</strong>であるということに注意してください．</p>
+                                <p>次の例を見てください．</p>
+                                <div class="ex"><pre class="brush: html;">   
+                                    <div>element 1</div>
+                                    <div>element 2</div>
+                                </pre></div>
+                                <div class="ex"><pre class="brush: javascript;">
+                                    window.onload = function() {
+                                        // div要素をすべて取得する
+                                        var elems = document.getElementsByTagName('div');
+
+                                        // 1番目のdiv要素
+                                        console.log(elems[0]); //=> <div>element 1</div>
+
+                                        // 2番目のdiv要素
+                                        console.log(elems[1]); //=> <div>element 2</div>
+                                    };
+                                </pre></div>
+                                <p><strong>getElementsByTagName</strong>は要素名から要素を取得する関数です．</p>
+                                <p>getElementByIdが要素を1つだけ取得するのに対し，getElementsByTagNameは指定した要素名の要素をすべて取得できます．複数のデータをひとまとまりにするので，戻り値は配列に似たデータの集まりになります．</p>    
+                                <p>上の例ではすべてのdiv要素をHTMLを上から探した順番に取得します．<br />また，指定する文字列を＊にすることで，HTML文書のすべての要素を取得することもできます．つまり引数に指定できるのは要素名か＊だけです．</p>
+                                <p><strong>getElementsByClassName</strong>はclass名から要素を取得する関数です．使い方は上の2つからわかると思うので省きます．注意点としてはIEのバージョン8以下では対応していません．</p>
+                                <p><strong>querySelector,querySelectorAll</strong>はCSSのセレクタを使って要素を取得する関数です．</p>
+                                <p>querySelectorはマッチした要素を1つだけ，querySelectorAllはすべて取得します．注意点としてはIEのバージョン7以下では対応していません．これらを使うと次のように様々な条件で要素を取得できます．</p>
+                                <div class="ex"><pre class="brush: javascript;">
+                                    // id名がboxの要素
+                                    document.querySelector('#box');
+                                    
+                                    // class名がboxの要素すべて
+                                    document.querySelectorAll('.box');
+                                    
+                                    // div要素すべて
+                                    document.querySelectorAll('div'); //div要素
+                                    
+                                    // id 名がboxの要素の直接の子要素ul要素すべて
+                                    document.querySelectorAll('#box > ul');
+                                    
+                                    // input要素のtype属性がradioの要素すべて
+                                    document.querySelectorAll('input[type=radio]');
+                                </pre></div>    
+                            <h5>属性値の取得と変更</h5>     
+                                <p>まず，HTMLの属性を取得する方法について解説します．前述したようにHTMLの要素はオブジェクトです．このオブジェクトのプロパティからHTMLの属性値を取得できます．</p>    
+                                <div class="ex"><pre class="brush: html;">   
+                                    <img id="image" src="sample.jpg" alt="sample画像">
+                                </pre></div>
+                                <div class="ex"><pre class="brush: javascript;">
+                                    window.onload = function() {
+                                        // id名がimageである要素を取得
+                                        var image = document.getElementById('image');
+
+                                        // 取得した要素のsrc属性値を取得
+                                        var src = image.src;
+
+                                        // src属性値が取得できていることを確認
+                                        console.log(src); //=> sample.jpg
+                                    };
+                                </pre></div>      
+                                <p>6行目のimage.srcというプロパティ名でHTMLのsrc属性の値sample.jpgを取得できていることがわかります．</p>    
+                                <p>また，属性値の変更や追加もできます．</p>    
+                                <div class="ex"><pre class="brush: html;">   
+                                    <img id="image" src="sample.jpg" alt="sample画像">
+                                </pre></div>
+                                <div class="ex"><pre class="brush: javascript;">
+                                   window.onload = function() {
+                                        // id名がimageである要素を取得
+                                        var image = document.getElementById('image');
+
+                                        // 取得した要素のsrc属性値をsample2.jpgに上書き
+                                        image.src = 'sample2.jpg';
+                                    };
+                                </pre></div>         
+                                <p>上の例ではimg要素のsrc属性の値にsample2.jpgという値を設定しています．javascriptでimg要素のsrc属性値を変更すると，ブラウザの表示も変更されるところが重要です．下の例では設定されていないimg要素のwidth属性とheight属性を新たに追加し，画像の幅と高さを設定しています．</p>
+                                <div class="ex"><pre class="brush: html;">   
+                                    <img id="image" src="sample.jpg" alt="sample画像">
+                                </pre></div>
+                                <div class="ex"><pre class="brush: javascript;">
+                                   window.onload = function() {
+                                        // id名がimageである要素を取得
+                                        var image = document.getElementById('image');
+
+                                        // width属性を追加
+                                        image.width = 300;
+
+                                        // height属性を設定
+                                        image.height = 100;
+                                    };
+                                </pre></div>             
+                                <p>属性値の変更を行うのに，<strong>getAttributeとsetAttribute</strong>という関数を使う方法もあります．<br />getAttributeは属性値の取得，setAttributeは属性値の変更を行います．</p>                                                               
+                                <div class="ex"><pre class="brush: javascript;">
+                                   window.onload = function() {
+                                        // id名がimageである要素を取得
+                                        var image = document.getElementById('image');
+
+                                        // 属性の値の取得
+                                        var src = image.getAttribute('src');
+
+                                        // 属性の値の変更
+                                        image.setAttribute('src', 'sample2.jpg');
+                                    };
+                                </pre></div>                 
+                                <p><strong>image.getAttribute('src')</strong>でsrc属性値を取得し，<strong>image.setAttribute('src', 'sample2.jpg')</strong>でsrc属性値の変更を行っています．前述のオブジェクトのプロパティを使う方法とできることはほとんど同じです．</p>    
+                                 <h5>innerHTMLびよる要素の取得と変更</h5>   
+                                    <p>属性地の取得や変更について説明しましたが，javascriptでは取得した要素の内容を取得，変更することもできます．要素の内容を取得するには<strong>innerHTML</strong>を使います．</p>   
+                                    <div class="ex"><pre class="brush: html;">   
+                                    <div id="box">This is <b>box</b></div>
+                                    </pre></div>
+                                    <div class="ex"><pre class="brush: javascript;">
+                                        window.onload = function() {
+                                            // id名がboxの要素を取得
+                                            var box = document.getElementById('box');
+
+                                            // 取得した要素の内容を取得
+                                            var html = box.innerHTML;
+
+                                            // 内容を確認
+                                            console.log(html); //=> This is <b>box</b>
+                                        };
+                                    </pre></div>              
+                                    <p>id名がboxの要素を取得し，box.innerHTMLでbox要素の内容を取得して出力しています．取得したデータは<strong>文字列</strong>であることが重要です．</p>
+                                    <p>要素の内容を変更する場合は，<strong>innnerHTMLに文字列を代入</strong>します．</p>
+                                    <div class="ex"><pre class="brush: html;">   
+                                    <div id="box">This is <b>box</b></div>
+                                    </pre></div>
+                                    <div class="ex"><pre class="brush: javascript;">
+                                        window.onload = function() {
+                                            // id名がboxの要素を取得
+                                            var box = document.getElementById('box');
+
+                                            // 取得した要素の内容を変更
+                                            box.innerHTML = '<em>new</em> HTML!';
+
+                                            // 内容が変更されていることを確認
+                                            console.log(box.innerHTML); //=> <em>new</em> HTML!
+                                        };
+                                    </pre></div>              
+                                    <p>上の例では新しく文字列を代入しています．代入した場合，代入する前のHTMLは消えて新しいHTMLが上書きされることに注意してください．</p>
+                                    <div class="ex"><pre class="brush: html;">   
+                                    <div id="box">This is <b>box</b></div>
+                                    </pre></div>
+                                    <div class="ex"><pre class="brush: javascript;">
+                                        window.onload = function() {
+                                            // id名がboxの要素を取得
+                                            var box = document.getElementById('box');
+
+                                            // 取得した要素の内容を変更
+                                            box.innerHTML = box.innerHTML + ' added!';
+
+                                            // 内容が変更されていることを確認
+                                            console.log(box.innerHTML); //=> This is <b>box</b> added!
+                                        };
+                                    </pre></div>              
+                                    <p>box.innerHTML + ' added!'で，変更する前の元のHTMLにadded!という文字列を加えています．</p>
+                                <h5>新規要素の作成と追加</h5>
+                                    <p>既存のHTMLの内容や属性の変化だけでなく，新しい要素を作って追加することもできます．今回のスライドショーのサンプルプログラムでは，用意したデータを元にimg要素を新しく作ってHTMLに追加しています．</p>
+                                   
+                                    
+                                    
+                                    
+        </section>
+        
+        
+        
+        
+        <hr />
+        
+        <section id="reference">
+            <h2>参考書籍</h2>
+                <p>今回このページの作成及びjavascriptの学習で参考にした書籍</p>
+                <a href="http://www.amazon.co.jp/dp/4774153761" target="_blank"> <img src="images/javascript01.jpg" alt="No image"><br />ノンプログラマのためのJavaScriptはじめの一歩</a>
+        
+        </section>
+        
+        <hr />
+    
+    <!-- フッタ -->
+        <footer>Copyright (c) misawa takuya ALL Rights Reserved.</footer>
+    
+    
+    </article>
+    
+    
+    
+</body>
+</html>

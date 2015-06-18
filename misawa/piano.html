@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>piano</title>
+<style>
+.key{
+	position: absolute;
+	top: 50px;
+	width: 49px;	height: 200px;
+	text-align: center;
+	vertical-align: bottom;
+	border: solid 1px black;
+	color: black;
+}
+
+.white{
+	width: 49px;	height: 50px;
+	padding-top: 150px;
+}
+
+
+.black{
+	width: 30px;	height: 135px;
+	background-color: black;
+	color: white;
+	font-size: 70%;
+}
+
+#C3{ left: 50px;}
+#D3{ left: 100px;}
+#E3{ left: 150px;}
+#F3{ left: 200px;}
+#G3{ left: 250px;}
+#A3{ left: 300px;}
+#B3{ left: 350px;}
+#C4{ left: 400px;}
+
+#Cp3{ left: 85px;}
+#Dp3{ left: 135px;}
+#Fp3{ left: 235px;}
+#Gp3{ left: 285px;}
+#Ap3{ left: 335px;}
+
+</style>
+</head>
+<body>
+<div id="C3" class="key white">ド</div>
+<div id="D3" class="key white">レ</div>
+<div id="E3" class="key white">ミ</div>
+<div id="F3" class="key white">ファ</div>
+<div id="G3" class="key white">ソ</div>
+<div id="A3" class="key white">ラ</div>
+<div id="B3" class="key white">シ</div>
+<div id="C4" class="key white">ド</div>
+
+<div id="Cp3" class="key black">ド＃</div>
+<div id="Dp3" class="key black">レ＃</div>
+<div id="Fp3" class="key black">ファ＃</div>
+<div id="Gp3" class="key black">ソ＃</div>
+<div id="Ap3" class="key black">ラ＃</div>
+
+<script>
+var els = document.getElementsByClassName("key");
+
+for(var i=0; i < els.length; i++){
+	
+	els[i].addEventListener('mousedown', function(ev){
+		ev.preventDefault();
+		this.style.top = "55px";
+		var url = "sounds/"+ this.id +".wav";
+		audioObj = new Audio(url);
+		audioObj.play();
+		}, false);
+
+	els[i].addEventListener('mouseup', function(){
+		this.style.top = "50px";
+		}, false);
+
+	els[i].addEventListener('mouseout', function(){
+		this.style.top = "50px";
+		}, false);
+}
+
+</script>
+</body>
+</html>
+

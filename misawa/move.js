@@ -11,29 +11,31 @@ $(function(){
     });
 
 /*----------------------------------マウスオーバー基本形（jquery使用）-----------------*/
-$('#hoge').hover(
-    function(){ //マウスオーバー処理 
-        
-    },
-    function(){ //マウスアウト処理
-        
-    }
-);
-
-
-/*----------------------------------マウスオーバー基本形（jquery使用）-----------------*/
 $(function(){
-    $('.profile').hover(function() {
-        $(this).animate({
-            'width':'200px',
-            'height':'200px',
-            'marginLeft':'3px'
-        }, 300);//左を3px空ける事でテキストを右にずらす
-    },function() {
-        $(this).animate({
-            'width':'100px',
-            'height':'100px',
-            'marginLeft':'0px'
-        }, 300);
-    });
+    $('#hoge').hover(
+        function(){ //マウスオーバー処理 
+
+        },
+        function(){ //マウスアウト処理
+
+        }
+    );
 });
+
+
+
+
+/*----------------------------------マウスオーバーメイン画面（jquery使用）-----------------*/
+$(function(){
+    $('#main01').hover(
+        function(){ //マウスオーバー処理
+            $('#pro_new').css("display","none");
+            $('#pro_con').css("display","inline");
+        },
+        function(){ //マウスアウト処理
+            $('#pro_con').css("display","none");
+            $('#pro_new').css("display","inline");
+        }
+    );
+});
+

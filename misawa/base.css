@@ -37,6 +37,24 @@ article#page_body {
 	/*background-image:url("images/bg056_04.gif");*/
 	}
 
+section h1 {
+    background-color: #FFFAFA;
+    display: inline-block;
+    margin: 0.5em 0.5em;
+    padding: 0.1ex 0.3em 0.1ex 0.6em;
+    
+    border-left: outset dimgray 5px;
+    
+}
+
+
+.souce {
+    display: inline-block;
+    
+    
+}
+
+
 /*==================================
 ヘッダ
 ====================================*/
@@ -172,10 +190,34 @@ nav * {
     background-color: #DCDCDC;
     
     
+    
+    
 }
 
 #mainwin>h1{
     display: none;
+}
+
+#mainwin h2, h3 {
+    margin: 0;
+    color: aliceblue;
+    
+    
+}
+
+#mainwin h2 {
+    font-size: 100%;
+    
+    
+    
+    
+    
+}
+
+#mainwin h3 {
+    font-size: 95%;
+    
+    
 }
 
 
@@ -186,10 +228,34 @@ nav * {
   -ms-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+    
+}
+#mainwin>section ul{
+    margin: 0;
+    
+    
+    
+    
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #main00 {
-    background-image:url("images/products.JPG");
+    background-image:url("images/top.jpeg");
     position: absolute;
     top: 0;
     left: 0;
@@ -213,6 +279,7 @@ section.sub {
     background-size: 100% 100%;
     z-index: 4;
     
+    overflow: auto;
 }
 
 .sub:hover {
@@ -225,15 +292,119 @@ section.sub {
     
 }
 
+
+
+
 #main01 {
-    background-image:url("images/products.JPG");
+    background-image:url("images/products.jpeg");
     left: 0;
 }
 
 
 
+/*----------------------------------
+制作物
+------------------------------------*/
+#pro_new p{
+    color: aliceblue;
+    font-size: 200%;
+    
+}
+
+#pro_con {
+    display: none;
+    
+}
+
+
+
+#main01 ul {
+    padding: 0;
+    
+    
+    
+    
+}
+
+
+#main01 li {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 8em;
+    height: 8em;
+    
+    background-color: rgba(235,255,255,0.7);
+    margin: 4px;
+    padding: 4px;
+    border-radius: 10%;
+    text-align: center;
+    
+    -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#main01 li:hover{
+    background-color: rgba(20,255,255,0.7);
+    
+}
+
+
+
+#main01 li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%
+    
+}
+
+#main01 li a:link {
+    
+    
+    
+}
+
+#main01 li a:visited {
+    
+    
+    
+}
+
+
+#main01 time {
+    position:absolute;
+    right: 0;
+    left: 0;
+    bottom: 1px;
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #main02 {
-    background-image:url("images/products.JPG");
+    background-image:url("images/memo.jpeg");
     text-align: right;
     right: 0;
 }
@@ -253,11 +424,15 @@ section.sub {
 更新情報
 ====================================*/
 #update {
-    width: 100%;
+    position: absolute;
+    width: 95%;
     height: 15em;
     font-size: 80%;
     box-sizing:border-box;
-    
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 10px;
     
 }
 
@@ -276,7 +451,7 @@ section.sub {
 
 #update ul {
     height: 90%;
-    background-color: #d3d3d3;
+    background-color: rgba(255,255,255,0.7);
     box-sizing:border-box;
     overflow: auto;
     margin: 0;
@@ -296,25 +471,6 @@ section.sub {
 
 
 
-
-/*==================================
-制作物
-====================================*/
-#products {
-    
-    
-    
-    
-    
-}
-
-#products li{
-    list-style: none;
-    
-    
-    
-    
-}
 
 
 

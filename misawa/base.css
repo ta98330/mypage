@@ -7,12 +7,16 @@
 	}
 
 body {
-    width:97vw;
-    margin: 0 auto;
+    width:100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
     box-sizing:border-box;
     background-color: #FFFAFA;
     
-    //overflow-x: hidden;
+    overflow: hidden;
+    
+    //overflow-y: hidden;
 	
 	}
 
@@ -22,19 +26,11 @@ a {
     
 }
 
-hr {
-	clear: both;								/* フロート配置をクリア */
-	width: 100%;								/* 幅の指定 */
-	margin: 10px 0px;							/* マージン */
-	border: 1px dotted #CCCCCC;					/* 内容の区切りを点線に */
-	}
-
-
-article#page_body {
+#page_body {
 	width:100%;
+    height: 90%;
     //margin:0 auto;
-	background-color: #696969;
-	/*background-image:url("images/bg056_04.gif");*/
+
 	}
 
 section h1 {
@@ -60,18 +56,19 @@ section h1 {
 ====================================*/
 header {
     width: 100%;
+    box-sizing:border-box;
+    overflow: hidden;
+	//top: 0;
     
-	top: 0;
-    
-    z-index: 1000;
-    
-    
-    
-    position: fixed;
+    //z-index: 1000;
     
     
     
-    background-color: rgba(255,255,255,0.8);
+    //position: fixed;
+    
+    
+    
+    //background-color: rgba(255,255,255,0.8);
     
     /*透過
     filter:alpha(opacity=50);
@@ -99,21 +96,18 @@ header h1 a {
 メニュー
 ====================================*/
 nav {
-    float: right;
+    display: inline-block;
+    position: absolute;
+    right: 0;
     margin-top: 2%;
-    
     font-size: 96%;
     
-    
-	
 	}
 
 nav a {
     
 	
 	}
-
-
 
 nav ul{
   margin:0;
@@ -183,11 +177,18 @@ nav * {
 メイン画面
 ====================================*/
 #mainwin {
-    margin-top: 6%;
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     background-color: #DCDCDC;
+    
+    
+    
+    
+}
+
+#mainwin :hover{
+    z-index: 5;
     
     
     
@@ -238,22 +239,9 @@ nav * {
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*==================================
+トップ
+====================================*/
 #main00 {
     background-image:url("images/top.jpeg");
     position: absolute;
@@ -265,159 +253,19 @@ nav * {
     background-size: 100% 100%;
     
     /*透過*/
-    filter:alpha(opacity=50);
+    filter:alpha(opacity=80);
     -moz-opacity: 0.8;
     opacity: 0.8;
     
 }
 
-section.sub {
-    position: absolute;
-    bottom: 0;
-    width: 50%;
-    height: 30%;
-    background-size: 100% 100%;
-    z-index: 4;
-    
-    overflow: auto;
-}
-
-.sub:hover {
-    width: 90%;
-    height: 90%;
-    background-size: 100% 100%;
-    z-index: 5;
-    
+#recent p {
+    font-weight: 600;
+    margin-left: 3%;
     
     
 }
 
-
-
-
-#main01 {
-    background-image:url("images/products.jpeg");
-    left: 0;
-}
-
-
-
-/*----------------------------------
-制作物
-------------------------------------*/
-#pro_new p{
-    color: aliceblue;
-    font-size: 200%;
-    
-}
-
-#pro_con {
-    display: none;
-    
-}
-
-
-
-#main01 ul {
-    padding: 0;
-    
-    
-    
-    
-}
-
-
-#main01 li {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    width: 8em;
-    height: 8em;
-    
-    background-color: rgba(235,255,255,0.7);
-    margin: 4px;
-    padding: 4px;
-    border-radius: 10%;
-    text-align: center;
-    
-    -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-}
-
-#main01 li:hover{
-    background-color: rgba(20,255,255,0.7);
-    
-}
-
-
-
-#main01 li a {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 100%
-    
-}
-
-#main01 li a:link {
-    
-    
-    
-}
-
-#main01 li a:visited {
-    
-    
-    
-}
-
-
-#main01 time {
-    position:absolute;
-    right: 0;
-    left: 0;
-    bottom: 1px;
-    
-    
-    
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#main02 {
-    background-image:url("images/memo.jpeg");
-    text-align: right;
-    right: 0;
-}
-
-
-
-#mainwin :hover{
-    z-index: 5;
-    
-    
-    
-    
-}
 
 
 /*==================================
@@ -471,6 +319,139 @@ section.sub {
 
 
 
+/*==================================
+サブ画面
+====================================*/
+section.sub {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    height: 30%;
+    background-size: 100% 100%;
+    z-index: 4;
+    
+    overflow: auto;
+}
+
+.sub:hover {
+    width: 90%;
+    height: 90%;
+    background-size: 100% 100%;
+    z-index: 5;
+    
+    
+    
+}
+
+
+
+
+.sub_new p{
+    color: aliceblue;
+    font-size: 200%;
+    text-align: center;
+    
+}
+
+.sub_con li {
+    background-color: rgba(235,255,255,0.7);
+    
+    
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; 
+    
+}
+
+.sub_con li:hover {
+    background-color: rgba(20,255,255,0.7);
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+/*==================================
+制作物
+====================================*/
+#products {
+    background-image:url("images/products.jpeg");
+    left: 0;
+}
+
+#pro_con {
+    display: none;
+    
+}
+
+#products ul {
+    padding: 0;
+    
+        
+}
+
+#products li {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 8em;
+    height: 8em;
+    
+    background-color: rgba(235,255,255,0.7);
+    margin: 4px;
+    padding: 4px;
+    border-radius: 10%;
+    text-align: center;
+    
+}
+
+#products li:hover{
+    background-color: rgba(20,255,255,0.7);
+    
+}
+
+#products li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%
+    
+}
+
+#products li a:link {
+    
+    
+    
+}
+
+#products li a:visited {
+    
+    
+    
+}
+
+#products time {
+    position:absolute;
+    right: 0;
+    left: 0;
+    bottom: 1px;
+    
+    
+    
+    
+}
+
+
+
+
 
 
 
@@ -479,17 +460,29 @@ section.sub {
 メモ
 ====================================*/
 #process {
-    
-    
-    
-    
+    background-image:url("images/memo.jpeg");
+    position: absolute;
+    right: 0;
+}
+
+#process li {
+    list-style: none;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
     
 }
 
-#process pre {
-    
+#process h2 {
+    color: orchid;
     
 }
+
+
+
+
+
+
 
 
 /*==================================

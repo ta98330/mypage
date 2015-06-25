@@ -437,6 +437,15 @@ section.sub {
     
 }
 
+#products img {
+    width: 80%;
+    position: absolute;
+    left: 0.8em;
+    
+    bottom: 1.5em;
+    
+}
+
 #products time {
     position:absolute;
     right: 0;

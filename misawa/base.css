@@ -343,7 +343,11 @@ section.sub {
     
 }
 
-
+.sub_con {
+   display: none; 
+    
+    
+}
 
 
 .sub_new p{
@@ -385,11 +389,6 @@ section.sub {
 #products {
     background-image:url("images/products.jpeg");
     left: 0;
-}
-
-#pro_con {
-    display: none;
-    
 }
 
 #products ul {

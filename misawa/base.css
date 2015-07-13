@@ -8,13 +8,14 @@
 
 body {
     width:100vw;
+    max-width: 1000px;
     height: 100vh;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing:border-box;
-    background-color: #FFFAFA;
+    background-color: mistyrose;
     
-    overflow: hidden;
+    //overflow: hidden;
     
     //overflow-y: hidden;
 	
@@ -30,7 +31,7 @@ a {
 	width:100%;
     height: 90%;
     //margin:0 auto;
-
+    background-color: #DCDCDC;
 	}
 
 section h1 {
@@ -180,7 +181,7 @@ nav * {
     position: absolute;
     width: 100%;
     height: 90vh;
-    background-color: #DCDCDC;
+    
     
     
     
@@ -244,11 +245,14 @@ nav * {
 ====================================*/
 #main00 {
     background-image:url("images/top.jpeg");
-    position: absolute;
-    top: 0;
-    left: 0;
+    //position: absolute;
+    //top: 0;
+    //left: 0;
     
-    width: 100%;
+    margin: 0 auto;
+    
+    width: 90%;
+    max-width: 1000px;
     height: 70%;
     background-size: 100% 100%;
     

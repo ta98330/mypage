@@ -43,7 +43,7 @@ $(window).load(function() {
 
 
 
-/*----------------------------------マウスオーバーメイン画面（jquery使用）-----------------*/
+/*----------------------------------マウスオーバーメイン画面（jquery使用）-----------------*//*
 $(function(){
     $('#products').hover(
         function(){ //マウスオーバー処理
@@ -69,3 +69,29 @@ $(function(){
         }
     );
 });
+
+*/
+
+
+
+
+$(function(){
+    $('#products').click(
+        function(){ //マウスオーバー処理
+            $('#pro_new').css("display","none");
+            $('#pro_con').css("display","inline");
+        }
+        
+    );
+});
+
+
+
+
+
+
+
+
+
+
+

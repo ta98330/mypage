@@ -1,0 +1,430 @@
+/*=================================
+全体的なスタイル
+==================================*/
+* {
+    
+    
+	}
+
+body {
+    width:100vw;
+    //max-width: 1000px;
+    //height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing:border-box;
+    background-color: mistyrose;
+    
+    //overflow: hidden;
+    
+    //overflow-y: hidden;
+	
+	}
+
+a {
+    text-decoration: none;
+    
+    
+}
+
+#page_body {
+	width:1000px;
+    margin:0 auto;
+    background-color: #DCDCDC;
+	}
+
+
+
+/*==================================
+ヘッダ
+====================================*/
+header {
+    width: 1000px;
+    height: 50px;
+    box-sizing:border-box;
+    //overflow: hidden;
+    margin: 0 auto;
+	//top: 0;
+    
+    //z-index: 1000;
+    
+    
+    
+    //position: relative;
+    
+    
+    
+    background-color: rgba(255,255,255,0.8);
+    
+    /*透過
+    filter:alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;*/
+	}
+
+header a{
+    color: #000000;
+    
+    
+}
+
+header h1 {
+	margin: 0;
+    display: inline-block;
+	}
+
+header h1 a {
+    //float: left;
+	font-size: 90%;
+    
+	}
+
+/*==================================
+メニュー
+====================================*/
+nav {
+    display: inline-block;
+    position: relative;
+    //bottom: 0;
+    //right: 0;
+    //margin-top: 2%;
+    font-size: 96%;
+    
+    right: 0;    
+	}
+
+nav a {
+    
+	
+	}
+
+nav ul{
+  margin:0;
+  padding:0;
+}
+	
+nav ul li {
+  list-style: none;
+  margin:0 2px;
+  padding:0;
+  font-size:96%;
+  float: left;
+  position: relative;
+  //width: 150px;/*親メニューの幅*/
+  //height: 40px;/*親メニューの高さ*/
+  //line-height: 40px;
+  //background:#FF818D;/*親メニューの背景色*/
+  //color: #4D4D4D;/*親メニューの文字色*/
+  text-align:center;
+  //font-weight:bold;
+}
+
+nav ul li a {
+  //color: #4D4D4D;
+  display: block;
+}
+nav ul li:hover, .menu ul li a:hover {
+  //text-decoration:underline;					/* リンクにマウスが乗ったら下線を表示 */
+  //background:#EA2839;/*ホバー時の親メニューの背景色*/
+  //color:#fff;/*ホバー時の親メニューの文字色*/
+}
+nav ul li ul {
+  position: absolute;
+  right: 0px;
+  //top: 40px;/*親メニューの高さと同じにする*/
+  //width: 150px;
+  
+  z-index: 100;
+}
+
+nav ul li ul li {
+  visibility: hidden;
+  overflow: hidden;
+  width: 250px;/*サブメニューの幅*/
+  height: 0;
+  background:#FFDAD7;/*サブメニューの背景色*/
+}
+
+nav ul li ul li:hover, .menu ul li ul li a:hover {
+  background:#FFAFA9;/*ホバー時のサブメニューの背景色*/
+}
+nav ul li:hover ul li, .menu ul li a:hover ul li{
+  visibility: visible;
+  overflow: visible;
+  height:30px;/*サブメニューの高さ*/
+  z-index: 10;
+  
+  padding-top: 8px;
+  
+}
+nav * {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+
+
+
+
+
+/*==================================
+更新情報
+====================================*/
+#update {
+    position: absolute;
+    width: 95%;
+    height: 15em;
+    font-size: 80%;
+    box-sizing:border-box;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 10px;
+    
+}
+
+#update h1 {
+    height: 10%;
+    box-sizing:border-box;
+    margin: 0;
+    
+}
+
+#update time {
+    font-weight:900
+    
+    
+}
+
+#update ul {
+    height: 90%;
+    background-color: rgba(255,255,255,0.7);
+    box-sizing:border-box;
+    overflow: auto;
+    margin: 0;
+    padding: 5px;
+    
+    
+    
+}
+
+#update li {
+    margin: 0;
+    list-style: none;
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+制作物
+====================================*/
+#products {
+    background-image:url("images/products.jpeg");
+    left: 0;
+}
+
+#products ul {
+    padding: 0;
+    
+        
+}
+
+#products li {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 8em;
+    height: 8em;
+    
+    background-color: rgba(235,255,255,0.7);
+    margin: 4px;
+    padding: 4px;
+    border-radius: 10%;
+    text-align: center;
+    
+}
+
+#products li:hover{
+    background-color: rgba(20,255,255,0.7);
+    
+}
+
+#products li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%
+    
+}
+
+#products li a:link {
+    
+    
+    
+}
+
+#products li a:visited {
+    
+    
+    
+}
+
+#products img {
+    width: 80%;
+    position: absolute;
+    left: 0.8em;
+    
+    bottom: 1.5em;
+    
+}
+
+#products time {
+    position:absolute;
+    right: 0;
+    left: 0;
+    bottom: 1px;
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+/*==================================
+メモ
+====================================*/
+#process {
+    background-image:url("images/memo.jpeg");
+    position: absolute;
+    right: 0;
+}
+
+#process li {
+    list-style: none;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+
+#process h2 {
+    color: orchid;
+    
+}
+
+
+
+
+
+
+
+
+/*==================================
+参考書籍
+====================================*/
+#reference {
+    overflow: hidden;
+    
+    
+    
+}
+
+#reference li {
+    list-style: none;
+    text-align: center;
+    float: left;
+    margin-right: 5px;
+    
+    
+}
+
+#reference img {
+    width: 200px;
+    height: 280px;
+    
+}
+
+
+
+
+
+
+
+
+
+/*==================================
+リンク
+====================================*/
+#link {
+    
+    
+}
+
+#link li {
+    list-style: none;
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+フッタ
+====================================*/
+footer {
+	//clear: both;								/* 回り込みを解除する */
+	//height:40px;								/* 高さ指定 */
+	//padding:10px 0px 0px 0px;					/* パディング */
+	font-size:x-small;							/* フォントサイズを小さく */
+	text-align:center;							/* テキストをセンター揃え */
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

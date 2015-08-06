@@ -7,20 +7,30 @@
 body {
     font-family: Arial, Verdana, sans-serif;
     font-size: 14px;
-    width: 95%;
-    margin: 0 auto;
-    
+    width: 100%;
+    background-image: url(images/bg001.jpg)
     
 	}
+
+#container {
+    width: 95%;
+    margin: 0 auto;
+    background-color: rgba(253,249,226,0.5);
+}
 
 a {
     text-decoration: none;
     
     
+    
 }
 
-
-
+/*----------------
+アイコン
+----------------*/
+.fa-pencil {
+    color: darkgreen;
+}
 
 
 
@@ -28,9 +38,10 @@ a {
 ヘッダ
 ====================================*/
 header {
-    width: 100%;
+    width: 95%;
+    margin: 0 auto;
     background: gray;
-    //position: absolute;
+    background-image: url(images/bg096_09.gif)
     
     
 	}
@@ -39,6 +50,11 @@ header h1 {
     font-size: 25px;
     font-weight:bold;
     margin-left: 10px;
+}
+
+header h1 a {
+    color: black;
+    
 }
 
 #footerNavlink {
@@ -76,18 +92,25 @@ header h1 {
     display: inline-block;
     margin-left: 5px;
     text-align:center;
+    color: black;
     
 }
 
 #headerNav ul li a {
-  //color: #4D4D4D;
+  color: black;
   display: block;
+}
+
+#headerNav ul li a:hover {
+  //color: blue;
+  text-shadow: 1px 1px 3px #767576;
 }
 
 #headerNav ul li:hover, .menu ul li a:hover {
   //text-decoration:underline;/* リンクにマウスが乗ったら下線を表示 */
-  background:#EA2839;/*ホバー時の親メニューの背景色*/
-  color:#fff;/*ホバー時の親メニューの文字色*/
+  //background:#EA2839;/*ホバー時の親メニューの背景色*/
+  //color:#fff;/*ホバー時の親メニューの文字色*/
+    
 }
 
 #headerNav ul li ul {
@@ -102,6 +125,13 @@ header h1 {
   width: 250px;/*サブメニューの幅*/
   height: 0;
   background:#FFDAD7;/*サブメニューの背景色*/
+    
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+    
 }
 
 #headerNav ul li ul li:hover, .menu ul li ul li a:hover {
@@ -115,14 +145,15 @@ header h1 {
   
   padding-top: 8px;
   
-}
-#headerNav * {
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+    
+    
 }
+
 
 
 
@@ -140,6 +171,18 @@ header h1 {
     width: 100%;
     height: 50vw;
     max-height: 40vh;
+    
+}
+
+#update h1 {
+    font-weight: 600;
+    background-color: floralwhite;
+    position: absolute;
+    display: inline;
+    padding: 2px;
+    margin: 5px;
+    border-left: groove 10px lightblue;
+    font-size: 120%;
     
 }
 
@@ -172,6 +215,16 @@ header h1 {
 制作物
 ====================================*/
 #products {
+    margin: 0 10px;
+}
+
+#products h1 {
+    font-weight: 600;
+    padding-left: 5px;
+    margin: 5px;
+    border-bottom: solid 3px dodgerblue;
+    color: midnightblue;
+    font-size: 120%;
     
 }
 
@@ -185,11 +238,14 @@ header h1 {
         
     }
 
+
 #products ul#pp li {
     position: relative;
     display: inline-block;
     text-align: center;
     margin-bottom: 5px;
+    border: solid 3px #006400;
+    background-color: rgba(255,255,150,0.8);
 }
 
 #products ul:not(#pp) time{
@@ -217,9 +273,19 @@ header h1 {
 
 
 /*==================================
-メモ
+研究過程
 ====================================*/
 #process {
+    margin: 0 10px;
+}
+
+#process>h1 {
+    font-weight: 600;
+    padding-left: 5px;
+    margin: 5px;
+    border-bottom: solid 3px dodgerblue;
+    color: midnightblue;
+    font-size: 120%;
     
 }
 
@@ -238,6 +304,16 @@ header h1 {
     
     
     
+    
+}
+
+#reference>h1 {
+    font-weight: 600;
+    padding-left: 5px;
+    margin: 5px;
+    border-bottom: solid 3px dodgerblue;
+    color: midnightblue;
+    font-size: 120%;
     
 }
 
@@ -263,6 +339,27 @@ header h1 {
 リンク
 ====================================*/
 #link {
+    margin: 0 10px;
+    
+}
+
+#link>h1 {
+    font-weight: 600;
+    padding-left: 5px;
+    margin: 5px;
+    border-bottom: solid 3px dodgerblue;
+    color: midnightblue;
+    font-size: 120%;
+    
+}
+
+#link ul {
+    
+    
+}
+
+
+#link ul li {
     
     
 }
@@ -272,13 +369,56 @@ header h1 {
 フッタ
 ====================================*/
 footer {
-    background: red;
+    width: 95%;
+    margin: 0 auto;
+    background-color: floralwhite;
+    padding: 10px 0;
 }
 
 footer>p {
 	font-size:x-small;							/* フォントサイズを小さく */
 	text-align:center;							/* テキストをセンター揃え */
 	}
+
+
+#footerNav {
+    
+    
+}
+
+#footerNav ul {
+    text-align: center;
+    
+}
+
+#footerNav ul li{
+    display: inline-block;
+    margin: 0 0 5px 5px;
+}
+
+#footerNav ul li .fa{
+    font-size: 50px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*--------------スマートフォンのスタイル-----------------*/
@@ -293,6 +433,16 @@ footer>p {
 
 /*--------------タブレットのスタイル-----------------*/
 @media all and (min-width: 480px) {
+    
+
+}
+
+
+
+
+/*--------------PCのスタイル-----------------*/
+@media all and (min-width: 768px) {
+    
     #footerNavlink {
         display: none;
     }
@@ -312,17 +462,10 @@ footer>p {
     
     
     
-    
-}
+    #products ul#pp li:hover {
+        background-color: rgba(255,165,0,0.7);
+    }
 
-
-
-
-
-
-/*--------------PCのスタイル-----------------*/
-@media all and (min-width: 768px) {
-    
     
     #products li:hover{
         background-color: rgba(20,255,255,0.7);

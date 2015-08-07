@@ -8,9 +8,11 @@ body {
     font-family: Arial, Verdana, sans-serif;
     font-size: 14px;
     width: 100%;
-    background-image: url(images/bg001.jpg)
+    background-image: url(images/bg001.jpg);
     
-	}
+        
+        
+}
 
 #container {
     width: 95%;
@@ -28,8 +30,12 @@ a {
 /*----------------
 アイコン
 ----------------*/
+.fa-bell {
+    
+}
+
 .fa-pencil {
-    color: darkgreen;
+    //color: darkgreen;
 }
 
 
@@ -221,7 +227,7 @@ header h1 a {
 #products h1 {
     font-weight: 600;
     padding-left: 5px;
-    margin: 5px;
+    margin: 5px 5px 5px 0;
     border-bottom: solid 3px dodgerblue;
     color: midnightblue;
     font-size: 120%;
@@ -282,11 +288,52 @@ header h1 a {
 #process>h1 {
     font-weight: 600;
     padding-left: 5px;
-    margin: 5px;
+    margin: 5px 5px 5px 0;
     border-bottom: solid 3px dodgerblue;
     color: midnightblue;
     font-size: 120%;
     
+}
+
+#process article {
+    margin-bottom: 10px;
+    
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    
+}
+
+#process article :not(h1) {
+    //display: none;
+    
+    
+}
+
+
+#process article h1{
+    font-size: 110%;
+    font-weight: 600;
+    
+}
+
+#process article p,.souce{
+    margin: 0 10px;
+    line-height: 1.5;
+    
+}
+
+.sql {
+    font-size: 105%;
+    background-color: beige;
+    border-bottom: solid 2px darkred;
+    
+}
+
+.sql strong {
+    font-weight: 600;
+    color: red;
 }
 
 .souce {
@@ -301,7 +348,7 @@ header h1 a {
 参考書籍
 ====================================*/
 #reference {
-    
+    margin: 0 10px;
     
     
     
@@ -310,7 +357,7 @@ header h1 a {
 #reference>h1 {
     font-weight: 600;
     padding-left: 5px;
-    margin: 5px;
+    margin: 5px 5px 5px 0;
     border-bottom: solid 3px dodgerblue;
     color: midnightblue;
     font-size: 120%;
@@ -346,7 +393,7 @@ header h1 a {
 #link>h1 {
     font-weight: 600;
     padding-left: 5px;
-    margin: 5px;
+    margin: 5px 5px 5px 0;
     border-bottom: solid 3px dodgerblue;
     color: midnightblue;
     font-size: 120%;
@@ -383,6 +430,11 @@ footer>p {
 
 #footerNav {
     
+    
+}
+
+#footerNav a:visited{
+    color: blue;
     
 }
 
@@ -442,6 +494,7 @@ footer>p {
 
 /*--------------PCのスタイル-----------------*/
 @media all and (min-width: 768px) {
+        
     
     #footerNavlink {
         display: none;
@@ -474,7 +527,15 @@ footer>p {
     }
     
     
+    #process article {
+        cursor: pointer;
+        
+    }
     
+    #process article h1:hover{
+        //color: brown;
+        
+    }
     
     
     

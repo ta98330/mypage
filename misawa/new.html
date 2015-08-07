@@ -97,82 +97,81 @@
                     </ul>
             </section><!-- id="products" -->
             
+            
             <section id="process">
                 <h1><i class="fa fa-road"></i> 研究過程</h1>
-                <section id="memo">
-                    <h1>メモ</h1>
-                    <article>
-                        <h2>SQLでサブクエリ．(2015.5.28)</h2>
-                        <p>SELECT * FROM member WHERE id = (SELECT id FROM user_logs WHERE date = '2015-05-27' AND end_time IS NULL);<br />括弧の前がイコールでは，値が複数の場合処理できない．イコールをINにすれば解決．<br />SELECT * FROM member WHERE id IN (SELECT id FROM user_logs WHERE date = '2015-05-27' AND end_time IS NULL);<br /><a href="https://support.google.com/calendar/answer/41207?hl=ja&authuser=2" target="_blank">参考ページ</a></p>
-                    </article>
-                    <article>
-                            <h2>Google カレンダーをホームページに埋め込む際予定が反映されなかった．(2015.5.20)</h2>
-                            <p>Chromeで作業する際，埋め込みたいカレンダーがあるgoogleアカウントとは別のアカウントでChrome自体にログインしている場合に起こった問題．</p><p><a href="https://support.google.com/calendar/answer/41207?hl=ja&authuser=2" target="_blank">このページ</a>の説明の通りGoogleカレンダー埋め込み支援ツールまで進むと，Chromeにログインしている方のアカウントに自動で切り替わってしまう．そのため，そこで生成されたiframeコードは埋め込みたいカレンダーのものとは別のコードが表示されていてうまくいかない．今回は別のブラウザで作業することで回避．</p>
-                    </article>
-                    <article>
-                            <h2>phpで作った卒検支援ページをローカルからhetemlサーバーへあげるときに起きた問題．(2015.5.19)</h2>
-                            <p>ローカル環境では動いていたが論理演算子でエラーが発生したためコードを変更．</p>
-                            <div class="souce">
-                                <pre class="brush: php;">
-                                if(!empty($_POST['come'] or $_POST['out'])) //ローカルでは動いたがhetemlはエラー
-                                </pre>
-                            </div>
-                            <br />
-                            <br />
-                            <div class="souce">
-                                <pre class="brush: php;">
-                                if(!empty($_POST['come']) or (!empty($_POST['out']))) //これならばhetemlでも動いた
-                                </pre>
-                            </div>
-                            <p>また，下で記述したエラー制御演算子＠「アットマーク」もhetemlではエラーになった．</p>
-                            <p>(追記：2015.05.21)ミーティングで，そもそもemptyの中で論理演算子というのはいかがなものかということで調査．<br />empty()は引数に指定した変数に値がセットされているかどうか調べる言語構造の一部で，0か空ならTRUE，それ以外はFALSEを返すというもの．この説明からするとやはりemptyの引数の中で論理演算をするというのは間違っているように思える．</p>
-
-                    </article>
-                    <article>
-                            <h2>PHPでの＠「アットマーク」の意味．(2015.5.11)</h2>
-                            <p>PHPの＠「アットマーク」は「エラー制御演算子」といい，エラーがあってもエラーメッセージを出力させないようにするためのもの．</p>
-                    </article>
-                    <article>
-                            <h2>SQLでNULLのレコードを削除したい．(2015.5.11)</h2>
-                            <p>delete from テーブル名 where レコードのフィールド（idなどを指定）=削除するレコード値で削除するレコード値をNULLで実行したところうまくいかなかった．調べたところNULLとの比較はできないとのこと．この場合はレコードのフィールド（idなどを指定） IS NULLまたはIS NOT NULLで行う．</p>
-                    </article>
-                    <article>
-                            <h2>同じネットワーク内のPCからXAMPP関連の画面を開けるようにする．(2015.5.11)</h2>
-                            <p><a href="http://nymemo.com/xampp/619/" target="_blank">こちらの記事</a>と，<a href="http://d.hatena.ne.jp/otome_pw/20110319/1300482063" target="_blank">こちらの記事</a>を参考に同じネットワーク内のPCからXAMPP関連の画面を開けるようにした．これで同じネットワーク内であれば作成したPHP・DBを用いたページを表示させることができるようになった．</p>
-                            <p>※場所: %XAMPP\apache\conf\extra\httpd-xampp.conf<br />※# Require localの「#」を忘れないように．</p>
-                    </article>
-                    <article>
-                            <h2>SyntaxHighlighterの動作(2015.4.17)</h2>
-                            <p><a href="http://allabout.co.jp/gm/gc/406309/" target="_blank">こちらの記事（All About）</a>を参考にSyntaxHighlighterを導入したが下の「ローカルとサーバ上での違い」を書いている時にimg= の後に実際には書いていない文が表示されている．現在原因の特定に至らず．</p>
-                    </article>
-                    <article>
-                            <h2>ローカルとサーバ上での違い？？(2015.4.17)</h2>
-                            <p>ローカルでは表示される画像がサーバーに上げると表示されない．原因は先頭のスラッシュ</p>
-                            <div class="souce">
-                                <pre class="brush: html;">
-                                <img src="/images/rogo/chrome.jpg" alt="No image">
-                                </pre>
-                            </div>
-                            <p>src="のあとのスラッシュがあるとローカルでは画像が表示されたがサーバーに上げた場合画像が表示されなかった．</p>
-                            <div class="souce">
-                                <pre class="brush: html;">
-                                <img src="images/rogo/chrome.jpg" alt="No image">
-                                </pre>
-                            </div>
-                            <p>これならば問題なく表示された．もちろんコチラの書き方が正しいのでコチラにすべき．</p>
-                    </article>
-                </section><!-- id="memo" -->
+                <p>研究過程で困ったところのメモ．各見出しを選択すると記事が展開されます．<br />大見出しをクリックするとすべての記事が展開されます．</p>
+                <article>
+                    <h1>SQLでサブクエリ (2015.5.28)</h1>
+                    <p><span class="sql">SELECT * FROM member WHERE id <strong>=</strong> (SELECT id FROM user_logs WHERE date = '2015-05-27' AND end_time IS NULL);</span><br />括弧の前がイコールでは，値が複数の場合処理できない．イコールをINにすれば解決．<br /><span class="sql">SELECT * FROM member WHERE id <strong>IN</strong> (SELECT id FROM user_logs WHERE date = '2015-05-27' AND end_time IS NULL);</span></p>
+                </article>
+                <article>
+                    <h1>Google カレンダーをホームページに埋め込む際予定が反映されなかった (2015.5.20)</h1>
+                    <p>Chromeで作業する際，埋め込みたいカレンダーがあるgoogleアカウントとは別のアカウントでChrome自体にログインしている場合に起こった問題．</p><p><a href="https://support.google.com/calendar/answer/41207?hl=ja&authuser=2" target="_blank" title="カレンダーヘルプ">このページ</a>の説明の通りGoogleカレンダー埋め込み支援ツールまで進むと，Chromeにログインしている方のアカウントに自動で切り替わってしまう．そのため，そこで生成されたiframeコードは埋め込みたいカレンダーのものとは別のコードが表示されていてうまくいかない．今回は別のブラウザで作業することで回避．</p>
+                </article>
+                <article>
+                    <h1>phpで作った卒検支援ページをローカルからhetemlサーバーへあげるときに起きた問題 (2015.5.19)</h1>
+                    <p>ローカル環境では動いていたが論理演算子でエラーが発生したためコードを変更．</p>
+                    <div class="souce">
+                        <pre class="brush: php;">
+                        if(!empty($_POST['come'] or $_POST['out'])) //ローカルでは動いたがhetemlはエラー
+                        </pre>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="souce">
+                        <pre class="brush: php;">
+                        if(!empty($_POST['come']) or (!empty($_POST['out']))) //これならばhetemlでも動いた
+                        </pre>
+                    </div>
+                    <p>また，下で記述したエラー制御演算子＠「アットマーク」もhetemlではエラーになった．</p>
+                    <p>(追記：2015.05.21)ミーティングで，そもそもemptyの中で論理演算子というのはいかがなものかということで調査．<br />empty()は引数に指定した変数に値がセットされているかどうか調べる言語構造の一部で，0か空ならTRUE，それ以外はFALSEを返すというもの．この説明からするとやはりemptyの引数の中で論理演算をするというのは間違っているように思える．</p>
+                </article>
+                <article>
+                    <h1>PHPでの＠「アットマーク」の意味 (2015.5.11)</h1>
+                    <p>PHPの＠「アットマーク」は「エラー制御演算子」といい，エラーがあってもエラーメッセージを出力させないようにするためのもの．</p>
+                </article>
+                <article>
+                    <h1>SQLでNULLのレコードを削除したい (2015.5.11)</h1>
+                    <p>delete from テーブル名 where レコードのフィールド（idなどを指定）=削除するレコード値で削除するレコード値をNULLで実行したところうまくいかなかった．調べたところNULLとの比較はできないとのこと．この場合はレコードのフィールド（idなどを指定） IS NULLまたはIS NOT NULLで行う．</p>
+                </article>
+                <article>
+                    <h1>同じネットワーク内のPCからXAMPP関連の画面を開けるようにする (2015.5.11)</h1>
+                    <p><a href="http://nymemo.com/xampp/619/" target="_blank">こちらの記事</a>と，<a href="http://d.hatena.ne.jp/otome_pw/20110319/1300482063" target="_blank">こちらの記事</a>を参考に同じネットワーク内のPCからXAMPP関連の画面を開けるようにした．これで同じネットワーク内であれば作成したPHP・DBを用いたページを表示させることができるようになった．</p>
+                    <p>※場所: %XAMPP\apache\conf\extra\httpd-xampp.conf<br />※# Require localの「#」を忘れないように．</p>
+                </article>
+                <article>
+                    <h1>SyntaxHighlighterの動作 (2015.4.17)</h1>
+                    <p><a href="http://allabout.co.jp/gm/gc/406309/" target="_blank">こちらの記事（All About）</a>を参考にSyntaxHighlighterを導入したが下の「ローカルとサーバ上での違い」を書いている時にimg= の後に実際には書いていない文が表示されている．現在原因の特定に至らず．</p>
+                </article>
+                <article>
+                    <h1>ローカルとサーバ上での違い？？(2015.4.17)</h1>
+                    <p>ローカルでは表示される画像がサーバーに上げると表示されない．原因は先頭のスラッシュ</p>
+                    <div class="souce">
+                        <pre class="brush: html;">
+                        <img src="/images/rogo/chrome.jpg" alt="No image">
+                        </pre>
+                    </div>
+                    <p>src="のあとのスラッシュがあるとローカルでは画像が表示されたがサーバーに上げた場合画像が表示されなかった．</p>
+                    <div class="souce">
+                        <pre class="brush: html;">
+                        <img src="images/rogo/chrome.jpg" alt="No image">
+                        </pre>
+                    </div>
+                    <p>これならば問題なく表示された．もちろんコチラの書き方が正しいのでコチラにすべき．</p>
+                </article>
             </section><!-- id="process" -->
                     
-                <section id="reference">
-                    <h1><i class="fa fa-book" style="font-size:30px"></i> 参考書籍<i class="fa fa-amazon"></i></h1>
-                    <ul>
-                        <li><a href="http://www.amazon.co.jp/dp/4798037990" target="_blank"> <img src="images/rm01.jpg" alt="No image"><br />TECHNICAL MASTER <br />はじめてのHTML+CSS</a></li>
-                        <li><a href="http://www.amazon.co.jp/dp/4774153761" target="_blank"> <img src="images/javascript01.jpg" alt="No image"><br />
-                            ノンプログラマのための<br />JavaScriptはじめの一歩</a></li>
-                        <li><a href="http://www.amazon.co.jp/dp/4844363883" target="_blank"><img src="images/javascript02.jpg" alt="No image"><br />JavaScriptの新しい教科書</a></li>
-                    </ul>
-                </section>
+            
+            <section id="reference">
+                <h1><i class="fa fa-book"></i> 参考書籍　<i class="fa fa-amazon" style="font-size: 80%;"></i></h1>
+                <ul>
+                    <li title="Amazonの商品ページへ"><a href="http://www.amazon.co.jp/dp/4798037990" target="_blank"> <img src="images/rm01.jpg" alt="No image"><br />TECHNICAL MASTER <br />はじめてのHTML+CSS</a></li>
+                    <li title="Amazonの商品ページへ"><a href="http://www.amazon.co.jp/dp/4774153761" target="_blank"> <img src="images/javascript01.jpg" alt="No image"><br />
+                        ノンプログラマのための<br />JavaScriptはじめの一歩</a></li>
+                    <li title="Amazonの商品ページへ"><a href="http://www.amazon.co.jp/dp/4844363883" target="_blank"><img src="images/javascript02.jpg" alt="No image"><br />JavaScriptの新しい教科書</a></li>
+                </ul>
+            </section>
                 
             
             

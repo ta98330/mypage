@@ -114,6 +114,72 @@
                 <h1><i class="fa fa-road"></i> 研究過程</h1>
                 <p>研究過程で困ったところのメモ．各見出しを選択すると記事が展開されます．<br />大見出しをクリックするとすべての記事が展開されます．</p>
                 <article>
+                    <h1>XAMPPの設定メモ(2015.6.12)</h1>
+                    <p>XAMPPインストール後の設定　<ins>追記：（2015.8.20）v1.8.2-6では不要.</ins></p>
+                    <h2>php.ini</h2>
+                    <p>XAMPPのコントロールパネルを開いて「Apache」の Config ボタン → <Browse> PHP → 開いたフォルダの中の php.ini</p>
+                    <p>以下の8つを探して、それぞれ文頭の ; を外す.<br />
+                    ;mbstring.language = Japanese<br />
+                    ;mbstring.internal_encoding = EUC-JP<br />
+                    ;mbstring.http_input = auto<br />
+                    ;mbstring.http_output = SJIS<br />
+                    ;mbstring.encoding_translation = Off<br />
+                    ;mbstring.detect_order = auto<br />
+                    ;mbstring.substitute_character = none<br />
+                    ;mbstring.func_overload = 0<br />
+                    <br />
+                    mbstring.internal_encoding = EUC-JP を mbstring.internal_encoding = UTF-8 に変更.<br />
+                    mbstring.http_output = SJIS を mbstring.http_output = UTF-8 に変更.<br />
+                    mbstring.encoding_translation = Off を mbstring.encoding_translation = On に変更.</p>
+                    <h2>my.ini の設定</h2>
+                    <p>XAMPPのコントロールパネルを開いて「MySQL」の Config ボタン → &lt;Browse&gt; → 開いたフォルダの中の bin フォルダ → my.ini<br />
+                    <br />
+                    ## UTF 8 Settings を探して、その下5行の文頭の # を外す。<br />
+                    init-connect=\'SET NAMES utf8\' を init-connect=SET NAMES utf8 にする。<br />
+
+                    [client] [mysqldump] [mysql] を探してそれぞれ default-character-set = utf8 を追加.<br />
+
+                    その後MySQLを再起動.<br />
+                    既に作ってあるテーブルには反映されないみたいなので作りなおす.<br />
+                    その時のテーブルの文字コードは utf8-general_ci<br />
+                    <br />
+                    ; PHP's default character set is set to empty.<br />
+                    ; http://php.net/default-charset<br />
+                    ["]取るdefault_charset = "UTF-8"<br />
+                    <br />
+                    [Date]<br />
+                    ; Defines the default timezone used by the date functions<br />
+                    ; http://php.net/date.timezone<br />
+                    date.timezone=Asia/Tokyo</p>
+                    <h2>セキュリティの文字化け</h2>
+                    <p>security\htdocs\navi.phpで<br />
+                    &lt;a target=_parent class=n href="lang.php?jp"&gt;&lt;?php print $TEXT['navi-japanese']; ?&gt;&lt;/a&gt;<br />
+                    jp.phpにも「//=====」の間を追加<br />
+                    注意！！保存はUTF-8Nで保存！！<br />
+                    security\htdocs\lang\jp.php<br />
+                    $TEXT['navi-languages'] = "各国語";<br />
+                    <br />
+                    // ================================<br />
+                    $TEXT['navi-english'] = "English";<br />
+                    $TEXT['navi-german'] = "Deutsch";<br />
+                    $TEXT['navi-spanish'] = "Espanol";<br />
+                    $TEXT['navi-french'] = "Francais";<br />
+                    $TEXT['navi-italian'] = "Italiano";<br />
+                    $TEXT['navi-dutch'] = "Nederlands";<br />
+                    $TEXT['navi-norwegian'] = "Norsk";<br />
+                    $TEXT['navi-polish'] = "Polski";<br />
+                    $TEXT['navi-portuguese'] = "Portugues";<br />
+                    $TEXT['navi-slovenian'] = "Slovenian";<br />
+                    $TEXT['navi-chinese'] = "中文";<br />
+                    $TEXT['navi-japanese'] = "日本語";<br />
+                    // ================================<br />
+                    <br />
+                    // ---------------------------------------------------------------------<br />
+                    // STATUS<br />
+                    // ---------------------------------------------------------------------<br />
+                    </p>
+                </article>
+                <article>
                     <h1>SQLでサブクエリ (2015.5.28)</h1>
                     <p><span class="sql">SELECT * FROM member WHERE id <strong>=</strong> (SELECT id FROM user_logs WHERE date = '2015-05-27' AND end_time IS NULL);</span><br />括弧の前がイコールでは，値が複数の場合処理できない．イコールをINにすれば解決．<br /><span class="sql">SELECT * FROM member WHERE id <strong>IN</strong> (SELECT id FROM user_logs WHERE date = '2015-05-27' AND end_time IS NULL);</span></p>
                 </article>

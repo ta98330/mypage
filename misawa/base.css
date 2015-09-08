@@ -255,6 +255,10 @@ header h1 a {
         
     }
 
+#products ul#pp {
+    text-align: center;
+}
+
 
 #products ul#pp li {
     position: relative;
@@ -263,6 +267,8 @@ header h1 a {
     margin-bottom: 5px;
     border: solid 3px #006400;
     background-color: rgba(255,255,150,0.8);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #products ul:not(#pp) time{

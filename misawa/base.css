@@ -27,6 +27,7 @@ body {
     max-width: 900px;
     margin: 0 auto;
     background-color: rgba(253,249,226,0.5);
+    
 }
 
 a {
@@ -57,7 +58,7 @@ header {
     max-width: 900px;
     margin: 0 auto;
     background: gray;
-    background-image: url(images/bg096_09.gif)
+    background-image: url(images/bg096_09.gif);
     
     
 	}

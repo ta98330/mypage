@@ -363,7 +363,7 @@ header h1 a {
     
 }
 
-.sql strong {
+strong {
     font-weight: 600;
     color: red;
 }

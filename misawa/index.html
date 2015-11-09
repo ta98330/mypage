@@ -61,6 +61,7 @@
                 <h1><i class="fa fa-bell"></i>更新情報</h1>
                 <div id="upbox">
                     <ul>
+                        <li><time datetime="2015-11-05">2015.11.5</time><a href="#process">研究過程</a>にSQL 追加・更新で同テーブルをサブクエリできない，SQL MAX関数の条件を追加しました．</li>
                         <li><time datetime="2015-10-30">2015.10.30</time><a href="#process">研究過程</a>にiOS input要素の角が勝手に丸くなるを追加しました．</li>
                         <li><time datetime="2015-10-29">2015.10.29</time><a href="#products">制作物</a>にミーティング資料 <a href="http://1drv.ms/1GL1SFg" target="_blank">福山大ミーティング結果1</a>を追加しました．</li>
                         <li><time datetime="2015-10-23">2015.10.23</time><a href="#products">制作物</a>にミーティング資料 <a href="http://1drv.ms/1Guzibc" target="_blank">Mindfulnessアプリ</a>,<a href="http://1drv.ms/1GuyUcw" target="_blank">福山大ミーティング資料.xlsx</a>を追加しました．</li>
@@ -145,6 +146,15 @@
             <section id="process">
                 <h1><i class="fa fa-road"></i> 研究過程</h1>
                 <p>研究過程で困ったところのメモ．各見出しを選択すると記事が展開されます．<br />大見出しをクリックするとすべての記事が展開されます．</p>
+                <article>
+                    <h1>SQL MAX関数の条件 (2015.11.5)</h1>
+                    <p>最大値を求める場合に注意する（自分の認識不足だった）点．<br />条件の中で最大値を求めたかった．ここではidが1で，今日（$today）の時間がもっとも新しいデータが抽出したかった．まず自分が考えたSQLは，<br /><span class="sql">SELECT * FROM mf_impressions WHERE id = 1 AND (datetime BETWEEN '$today 00:00:00' AND '$today 23:59:59') AND datetime = (SELECT MAX(datetime) FROM mf_impressions)</span><br />しかしこの場合もっとも新しいデータが得られるが，違う（1以外の）idのデータが最新の場合，該当データ無しとなる．最新のデータのidが1では無いためである．MAX関数は「グループ内の最大の値を返すもの」であり，<span class="sql">WHERE id = 1</span>で，idが1のデータがグループ化されたわけではない．そのためGROUP BY句を用いてグループ化する必要がある．</p>
+                    <p>改良後のSQL<br /><span class="sql">SELECT * FROM mf_impressions WHERE datetime = (SELECT max(datetime) FROM mf_impressions WHERE id = 1 AND (datetime BETWEEN '$today 00:00:00' AND '$today 23:59:59') GROUP BY id)</span><br />これで欲しい値を得ることができた．</p>
+                </article>
+                <article>
+                    <h1>SQL 追加・更新で同テーブルをサブクエリできない (2015.11.5)</h1>
+                    <p>SELECTではできたサブクエリがDELETEではエラー#1093が出てうまくいかない問題が発生した．次のページを参考に解決した．<a href="http://wsjp.blogspot.jp/2009/12/mysql1093.html" target="_blank">参考１</a>，<a href="http://oshiete.goo.ne.jp/qa/7189053.html" target="_blank">参考２</a></p>
+                </article>
                 <article>
                     <h1>iOS input要素の角が勝手に丸くなる (2015.10.30)</h1>
                     <p>卒検支援システムをiOS端末で表示する場合だけinput要素の角が丸くなってしまう問題が発生していた．デザイン・レイアウトの変更にともなって調査したところ<a href="http://ipodtouchmtb.blogspot.jp/2014/11/css-iosinput.html" target="_blank">参考ページ</a>を見つけた．</p>

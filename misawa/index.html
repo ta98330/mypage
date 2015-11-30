@@ -61,6 +61,7 @@
             <section id="update">
                 <div id="upbox">
                     <ul>
+                        <li><time datetime="2015-11-30">2015.11.30</time><a href="#process">研究過程</a>にCSS disabledで無効にしたボタンのデザインを追加しました．</li>
                         <li><time datetime="2015-11-26">2015.11.26</time><a href="#products">制作物</a>にミーティング資料 <a href="http://1drv.ms/1OhPdeQ" target="_blank">Mindfulnessアプリ2</a>を追加しました．</li>
                         <li><time datetime="2015-11-14">2015.11.14</time><a href="#process">研究過程</a>にWebアプリ 縦スクロール禁止を追加しました．</li>
                         <li><time datetime="2015-11-05">2015.11.5</time><a href="#process">研究過程</a>にSQL 追加・更新で同テーブルをサブクエリできない，SQL MAX関数の条件を追加しました．</li>
@@ -149,6 +150,10 @@
             <section id="process">
                 <h1><i class="fa fa-road"></i> 研究過程</h1>
                 <p>研究過程で困ったところのメモ．各見出しを選択すると記事が展開されます．<br />大見出しをクリックするとすべての記事が展開されます．</p>
+                <article>
+                    <h1>CSS disabledで無効にしたボタンのデザイン (2015.11.30)</h1>
+                    <p>disabledで無効にしたボタンのデザインを変更するときに発生した問題．disabled属性をつけたボタンが自動で薄い灰色になって押せなくなるが，CSSでデザインを変更する．<a href="http://zero.css-happylife.com/selectors/ui_states.shtml" target="_blank">参考</a>のとおりにUI要素状態擬似クラスで背景文字色は変えられたが全体的に薄いままだった．原因は<a href="http://www.htmq.com/css3/opacity.shtml" target="_blank">opacityプロパティ</a>だった．この値が0.3になっているようだ．値を1に変更して無事解決した．</p>
+                </article>
                 <article>
                     <h1>Webアプリ 縦スクロール禁止 (2015.11.14)</h1>
                     <p>画面サイズを固定してスクロールさせたくない場合の対処法．bodyタグに「ontouchmove="event.preventDefault()"」と追加するだけで実現できた．<a href="http://on-ze.com/archives/1232" target="_blank">参考</a></p>

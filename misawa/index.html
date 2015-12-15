@@ -63,6 +63,7 @@
                     <ul>
                         <li><time datetime="2015-12-16">2015.12.16</time><a href="#reference">参考書籍</a>にPHPの学習で参考にした書籍を追加しました.</li>
                         <li><time datetime="2015-12-16">2015.12.16</time><a href="#products">制作物</a>にミーティング資料 <a href="http://1drv.ms/1Mfnl5g" target="_blank">交流会資料</a>を追加しました．</li>
+                        <li><time datetime="2015-12-09">2015.12.09</time><a href="#process">研究過程</a>にPHP POST送信時 プロキシの罠を追加しました．</li>
                         <li><time datetime="2015-11-30">2015.11.30</time><a href="#process">研究過程</a>にCSS disabledで無効にしたボタンのデザインを追加しました．</li>
                         <li><time datetime="2015-11-26">2015.11.26</time><a href="#products">制作物</a>にミーティング資料 <a href="http://1drv.ms/1OhPdeQ" target="_blank">Mindfulnessアプリ2</a>を追加しました．</li>
                         <li><time datetime="2015-11-14">2015.11.14</time><a href="#process">研究過程</a>にWebアプリ 縦スクロール禁止を追加しました．</li>
@@ -153,6 +154,10 @@
             <section id="process">
                 <h1><i class="fa fa-road"></i> 研究過程</h1>
                 <p>研究過程で困ったところのメモ．各見出しを選択すると記事が展開されます．<br />大見出しをクリックするとすべての記事が展開されます．</p>
+                <article>
+                    <h1>PHP POST送信時 プロキシの罠 (2015.12.09)</h1>
+                    <p><a href="http://scrap.php.xdomain.jp/php_file_get_contents_post/" target="_blank">このページを参考</a>にPHPでフォームを介さずにPOSTデータを送信するプログラムを作成した．しかしローカル間で別のApacheのサーバーには送信できるが，hetemlサーバーのファイルに送信するときに「urlが存在しない」とエラーが出た．</p><p>原因が全くわからなかったが，自宅のPCでやってみたところ何のエラーも出ずhetemlに送信ができた．よって原因はプロキシであることがわかったので検索し，<a href="http://www.odin.hyork.net/write/write0455.html" target="_blank">このページを参考</a>にプログラムを書き換えると送信することができた．どうしてもうまくいかない場合は学校のプロキシ環境ではないところでテストしてみるといいかも．</p>
+                </article>
                 <article>
                     <h1>CSS disabledで無効にしたボタンのデザイン (2015.11.30)</h1>
                     <p>disabledで無効にしたボタンのデザインを変更するときに発生した問題．disabled属性をつけたボタンが自動で薄い灰色になって押せなくなるが，CSSでデザインを変更する．<a href="http://zero.css-happylife.com/selectors/ui_states.shtml" target="_blank">参考</a>のとおりにUI要素状態擬似クラスで背景文字色は変えられたが全体的に薄いままだった．原因は<a href="http://www.htmq.com/css3/opacity.shtml" target="_blank">opacityプロパティ</a>だった．この値が0.3になっているようだ．値を1に変更して無事解決した．</p>

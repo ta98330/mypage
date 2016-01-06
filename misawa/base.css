@@ -262,7 +262,7 @@ header h1 a {
 
 #products li{
         background-color: rgba(235,255,255,0.7);
-        
+        padding: 3px 0;
         
     }
 
@@ -287,6 +287,28 @@ header h1 a {
     
     
 }
+
+#products #app {
+    
+}
+
+#products #app li {
+    display: inline-block;
+    //width: 130px;
+    //height: 130px;
+    padding: 5px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#products #app img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 3px;
+}
+
 
 
 
@@ -408,12 +430,12 @@ strong {
 
 #reference ul {
     overflow: hidden;
+    text-align: center;
 }
 
 #reference ul li {
-    display: block;
+    display: inline-block;
     text-align: center;
-    float: left;
     margin-right: 10px;
     
 }

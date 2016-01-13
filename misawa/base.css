@@ -294,9 +294,11 @@ header h1 a {
 
 #products #app li {
     display: inline-block;
-    //width: 130px;
-    //height: 130px;
-    padding: 5px;
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-bottom:5px;
+    padding: 4px;
     text-align: center;
     box-sizing: border-box;
 }
@@ -308,9 +310,6 @@ header h1 a {
     margin: 0 auto;
     margin-bottom: 3px;
 }
-
-
-
 
 .badge {
     background: red;

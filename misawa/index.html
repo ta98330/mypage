@@ -61,6 +61,8 @@
             <section id="update">
                 <div id="upbox">
                     <ul>
+                        <li><time datetime="2016-01-19">2016.1.19</time><a href="#process">研究過程</a>にjQuery Mobile DOMキャッシュのせい？を追加しました．</li>
+                        <li><time datetime="2016-01-18">2016.1.18</time><a href="#products">制作物</a>にミーティング資料 <a href="http://1drv.ms/23996Ln" target="_blank">福山大ミーティング結果2</a>を追加しました．</li>
                         <li><time datetime="2016-01-15">2016.1.15</time><a href="#products">制作物</a>にミーティング資料 <a href="http://1drv.ms/1P3MnfD" target="_blank">Mindfulnessアプリ3</a>を追加しました．</li>
                         <li><time datetime="2016-01-14">2016.1.14</time><a href="#products">制作物</a>にミーティング資料 <a href="http://1drv.ms/1OqQv3q" target="_blank">Webアプリ脆弱性</a>を追加しました．</li>
                         <li><time datetime="2016-1-13">2016.1.13</time><a href="#products">制作物</a>に<a href="test/mindfulness_app.zip" target="_blank">Mindfulnessアプリパッケージzipファイル</a>を追加しました．</li>
@@ -113,6 +115,7 @@
                     <h2>ミーティング資料</h2>
                     <p><i class="fa fa-file-powerpoint-o" style="font-size:20px; color: red;"></i>PowerPoint　※PowerPoint Onlineで開きます．</p>
                     <ul id="pp">
+                        <li><span class="badge">New!</span><a href="http://1drv.ms/23996Ln" target="_blank">福山大ミーティング結果2<br /><img src="images/rogo/pp15.png" alt="No image"><br /><time datetime="2016-01-18">2016.1.18</time></a></li>
                         <li><span class="badge">New!</span><a href="http://1drv.ms/1P3MnfD" target="_blank">Mindfulnessアプリ3<br /><img src="images/rogo/pp14.png" alt="No image"><br /><time datetime="2016-01-15">2016.1.15</time></a></li>
                         <li><a href="http://1drv.ms/1OqQv3q" target="_blank">Webアプリ脆弱性<br /><img src="images/rogo/pp13.png" alt="No image"><br /><time datetime="2016-01-14">2016.1.14</time></a></li>
                         <li><a href="http://1drv.ms/1Mfnl5g" target="_blank">交流会資料<br /><img src="images/rogo/pp12.png" alt="No image"><br /><time datetime="2015-12-16">2015.12.16</time></a></li>
@@ -168,7 +171,11 @@
                 <h1><i class="fa fa-road"></i> 研究過程</h1>
                 <p>研究過程で困ったところのメモ．各見出しを選択すると記事が展開されます．<br />大見出しをクリックするとすべての記事が展開されます．</p>
                 <article>
-                    <h1>PHP POST送信時 プロキシの罠 (2015.12.09)</h1>
+                    <h1>jQuery Mobile DOMキャッシュのせい？ (2016.1.19)</h1>
+                    <p>Mindfulnessアプリのログアウトボタンを押したとき，確認のポップアップを表示するようにした．しかしポップアップがうまく動作しないことがまれに起こった．調べたところ，原因として次のことが考えられる．Ajax通信によりページを現在の文書ツリーに取り込んだ上でおもむろに目的のページに移動するが，Ajax式リンクでは，新たなページに移動した後，不要になったページを適宜破棄する．</p><p>ログアウトボタンがあるアプリのホーム画面では，キャッシュ機能を有効にすることで，ページ遷移後もページを文書ツリーで維持できるDOMキャッシュを有効にしていた．しかし，アプリの挙動を見ると，改めてホーム画面に遷移した場合，新たにホーム画面の文書を現在の文書ツリーに取り込んでいた．そのためポップアップを定義したidが重複し，表示されなかった．</p><p>data-dom-cache="true"を消去し，DOMキャッシュを無効にしたところ，重複することはなくなり，ログアウトが正常にできるようになった．</p>
+                </article>
+                <article>
+                    <h1>PHP POST送信時 プロキシの罠 (2015.12.9)</h1>
                     <p><a href="http://scrap.php.xdomain.jp/php_file_get_contents_post/" target="_blank">このページを参考</a>にPHPでフォームを介さずにPOSTデータを送信するプログラムを作成した．しかしローカル間で別のApacheのサーバーには送信できるが，hetemlサーバーのファイルに送信するときに「urlが存在しない」とエラーが出た．</p><p>原因が全くわからなかったが，自宅のPCでやってみたところ何のエラーも出ずhetemlに送信ができた．よって原因はプロキシであることがわかったので検索し，<a href="http://www.odin.hyork.net/write/write0455.html" target="_blank">このページを参考</a>にプログラムを書き換えると送信することができた．どうしてもうまくいかない場合は学校のプロキシ環境ではないところでテストしてみるといいかも．</p>
                 </article>
                 <article>

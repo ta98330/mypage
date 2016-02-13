@@ -256,15 +256,67 @@ header h1 a {
     
 }
 
-#products ul {
+#products h2 {
+    font-weight: 500;
+    padding-left: 5px;
+    margin: 5px 10px 5px 10px;
+    border-bottom: solid 2px #c90667;
+    color: midnightblue;
+    font-size: 110%;
     
 }
 
+#products ul {
+    margin-bottom: 10px;
+}
+
+#products ul:nth-last-child(1),#products ul:nth-last-child(3){
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 #products li{
-        background-color: rgba(235,255,255,0.7);
-        padding: 3px 0;
-        
-    }
+    background-color: rgba(235,255,255,0.7);
+    
+}
+
+#products #graduate {
+    margin: 0 15px;
+    
+    text-align: center;
+    //background-color: black;
+}
+
+#products #graduate li {
+    display: inline-block;
+    
+    
+    background: none;
+}
+
+#products #graduate li:first-child {
+    
+}
+
+#products #graduate li:first-child img {
+    width: 250px;
+    height: 150px;
+}
+
+#products #graduate li:nth-child(2) {
+    
+}
+
+#products #graduate li:nth-child(2) img {
+    width: 250px;
+    height: 150px;
+}
+
+#products ul:not(#pp) li a {
+    display: block;
+    height: 100%;
+    padding: 5px;
+}
 
 #products ul#pp {
     text-align: center;
@@ -284,12 +336,10 @@ header h1 a {
 
 #products ul:not(#pp) time{
     margin-left: 5px;
-    
-    
 }
 
 #products #app {
-    
+    text-align: center;
 }
 
 #products #app li {
@@ -298,6 +348,8 @@ header h1 a {
     width: 130px;
     height: 130px;
     margin-bottom:5px;
+    margin-right: 2%;
+    margin-left: 2%;
     padding: 4px;
     text-align: center;
     box-sizing: border-box;
